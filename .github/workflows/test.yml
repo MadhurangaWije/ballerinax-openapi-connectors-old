@@ -11,7 +11,7 @@ jobs:
     steps:
       - uses: actions/checkout@master
       - name: Read newly added connector metadata.toml
-        run:  ../read_metadata.sh
+        run:  . ./read_metadata.sh
       # - name: Run Project Generation Script
       #   run: sh ./create_project.sh -p $PATH_TO_YML
       - name: list
