@@ -12,3 +12,7 @@ jobs:
       - uses: actions/checkout@master
       - name: Run pwd
         run: pwd
+      - name: list
+        run: ls
+      - name: list previous folder
+      - run: ls ../
