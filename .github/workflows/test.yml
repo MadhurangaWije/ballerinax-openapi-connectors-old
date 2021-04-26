@@ -15,4 +15,4 @@ jobs:
       - name: list
         run: ls
       - name: list previous folder
-      - run: ls ../
+        run: ls ../
