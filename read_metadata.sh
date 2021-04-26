@@ -8,7 +8,6 @@ do
   value=${arrIN[1]}   
   declare $key=$value
 done < "$input"
-export env1="$dirname"
 
 echo "$dirname"
 echo "$version"
