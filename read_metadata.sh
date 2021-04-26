@@ -1,5 +1,5 @@
 #!/bin/bash
-input="/path/to/txt/file"
+input="metadata.toml"
 while IFS= read -r line
 do
   echo "$line"
