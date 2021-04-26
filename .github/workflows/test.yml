@@ -14,6 +14,7 @@ jobs:
         run:  |
           . ./read_metadata.sh
           echo ${env1}
+          echo ${path}
       # - name: Run Project Generation Script
       #   run: sh ./create_project.sh -p $PATH_TO_YML
       - name: list
