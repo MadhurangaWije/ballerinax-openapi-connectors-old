@@ -1,0 +1,14 @@
+name: Test GitHub Actions 
+
+on:
+  push:
+    branches:
+      - "master"
+
+jobs:
+  test-script:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      - name: Run pwd
+        run: pwd
