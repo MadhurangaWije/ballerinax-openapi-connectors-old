@@ -12,4 +12,4 @@ done < "$input"
 echo "$dirname"
 echo "$version"
 echo "$name"
-echo "$path"
+echo "$path" >> path.txt
