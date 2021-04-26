@@ -18,3 +18,5 @@ jobs:
         run: ls
       - name: list previous folder
         run: ls ../
+      - name: Echo variables created during the read metadata
+        run: echo $dirname
