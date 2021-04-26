@@ -8,7 +8,7 @@ do
   value=${arrIN[1]}   
   declare $key=$value
 done < "$input"
-echo "::set-env ENV_DIRNAME=$dirname"
+export env1="$dirname"
 
 echo "$dirname"
 echo "$version"
