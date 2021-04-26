@@ -14,6 +14,7 @@ jobs:
         run:  |
           . ./read_metadata.sh
           export CONNECTOR_PATH=${path}
+          echo "::set-env name=CONNECTOR_PATH::$CONNECTOR_PATH"
           echo ${CONNECTOR_PATH}
       - name: ECHO PATH
         run: echo $CONNECTOR_PATH
