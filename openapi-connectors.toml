@@ -1,0 +1,4 @@
+connectors = [
+    { path = "ServiceA/1.0.0", released = true },
+    { path = "ServiceB/1.1.0", released = false }
+]
