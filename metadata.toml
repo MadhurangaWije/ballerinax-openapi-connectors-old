@@ -1,4 +1,4 @@
-dirname=OpenWeatherMap
-version=1.0.0
-name=OpenWeatherMap.yaml
-path=OpenWeatherMap/1.0.0/pet_store.yaml
+dirname="PetStore"
+version="1.0.0"
+name="pet_store.yaml"
+path="PetStore/1.0.0/pet_store.yaml"
