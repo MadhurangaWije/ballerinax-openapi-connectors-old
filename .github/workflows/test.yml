@@ -1,4 +1,4 @@
-name: Test GitHub Actions 
+name: Connector Code Generation
 
 on:
   push:
@@ -10,8 +10,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@master
-      - name: Run pwd
-        run: pwd
+      - name: Read newly added connector metadata.toml
+        run: sh ./read_metadata.sh
+      # - name: Run Project Generation Script
+      #   run: sh ./create_project.sh -p $PATH_TO_YML
       - name: list
         run: ls
       - name: list previous folder
