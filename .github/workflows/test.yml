@@ -13,11 +13,10 @@ jobs:
       - name: Read newly added connector metadata.toml
         run:  |
           . ./read_metadata.sh
-          export CONNECTOR_PATH=${path}
-          echo "::set-env name=CONNECTOR_PATH::$CONNECTOR_PATH"
-          echo ${CONNECTOR_PATH}
       - name: ECHO PATH
-        run: echo $CONNECTOR_PATH
+        run: |
+          connector_path=$(cat path.txt) 
+          echo $connector_path
       # - name: Run Project Generation Script
       #   run: sh ./create_project.sh -p $PATH_TO_YML
       - name: list
