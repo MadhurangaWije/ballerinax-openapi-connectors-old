@@ -11,10 +11,10 @@
   "platform": "java11",
   "platformDependencies": [
     {
-      "path": "platform/java11/xmldata-native-1.1.0-alpha9-20210428-073300-8e6e5a1.jar",
+      "path": "platform/java11/xmldata-native-1.1.0-alpha9-20210430-123800-6165650.jar",
       "artifactId": "xmldata",
       "groupId": "ballerina",
-      "version": "1.1.0-alpha9-20210428-073300-8e6e5a1"
+      "version": "1.1.0-alpha9-20210430-123800-6165650"
     }
   ],
   "template": false

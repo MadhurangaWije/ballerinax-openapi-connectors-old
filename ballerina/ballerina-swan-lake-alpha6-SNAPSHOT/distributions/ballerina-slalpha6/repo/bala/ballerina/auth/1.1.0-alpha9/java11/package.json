@@ -11,10 +11,10 @@
   "platform": "java11",
   "platformDependencies": [
     {
-      "path": "platform/java11/auth-native-1.1.0-alpha9-20210428-080900-a5e61e8.jar",
+      "path": "platform/java11/auth-native-1.1.0-alpha9-20210430-131600-7e89eb3.jar",
       "artifactId": "auth",
       "groupId": "ballerina",
-      "version": "1.1.0-alpha9-20210428-080900-a5e61e8"
+      "version": "1.1.0-alpha9-20210430-131600-7e89eb3"
     }
   ],
   "template": false

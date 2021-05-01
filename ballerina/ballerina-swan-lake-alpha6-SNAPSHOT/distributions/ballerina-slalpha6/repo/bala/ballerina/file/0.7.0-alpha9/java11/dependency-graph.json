@@ -2,8 +2,8 @@
   "packages": [
     {
       "org": "ballerina",
-      "name": "time",
-      "version": "2.0.0-alpha10",
+      "name": "log",
+      "version": "1.1.0-alpha9",
       "dependencies": [
         {
           "org": "ballerina",
@@ -20,13 +20,33 @@
     },
     {
       "org": "ballerina",
-      "name": "log",
-      "version": "1.1.0-alpha9",
+      "name": "file",
+      "version": "0.7.0-alpha9",
       "dependencies": [
+        {
+          "org": "ballerina",
+          "name": "log",
+          "version": "1.1.0-alpha9"
+        },
+        {
+          "org": "ballerina",
+          "name": "os",
+          "version": "0.8.0-alpha9"
+        },
         {
           "org": "ballerina",
           "name": "jballerina.java",
           "version": "0.9.0"
+        },
+        {
+          "org": "ballerina",
+          "name": "time",
+          "version": "2.0.0-alpha10"
+        },
+        {
+          "org": "ballerina",
+          "name": "regex",
+          "version": "0.7.0-alpha9"
         }
       ]
     },
@@ -44,33 +64,13 @@
     },
     {
       "org": "ballerina",
-      "name": "file",
-      "version": "0.7.0-alpha9",
+      "name": "time",
+      "version": "2.0.0-alpha10",
       "dependencies": [
-        {
-          "org": "ballerina",
-          "name": "time",
-          "version": "2.0.0-alpha10"
-        },
         {
           "org": "ballerina",
           "name": "jballerina.java",
           "version": "0.9.0"
-        },
-        {
-          "org": "ballerina",
-          "name": "os",
-          "version": "0.8.0-alpha9"
-        },
-        {
-          "org": "ballerina",
-          "name": "log",
-          "version": "1.1.0-alpha9"
-        },
-        {
-          "org": "ballerina",
-          "name": "regex",
-          "version": "0.7.0-alpha9"
         }
       ]
     },
@@ -103,16 +103,9 @@
         },
         {
           "org": "ballerina",
-          "package_name": "time",
-          "version": "2.0.0-alpha10",
-          "module_name": "time",
-          "dependencies": []
-        },
-        {
-          "org": "ballerina",
-          "package_name": "log",
-          "version": "1.1.0-alpha9",
-          "module_name": "log",
+          "package_name": "regex",
+          "version": "0.7.0-alpha9",
+          "module_name": "regex",
           "dependencies": []
         },
         {
@@ -124,9 +117,16 @@
         },
         {
           "org": "ballerina",
-          "package_name": "regex",
-          "version": "0.7.0-alpha9",
-          "module_name": "regex",
+          "package_name": "log",
+          "version": "1.1.0-alpha9",
+          "module_name": "log",
+          "dependencies": []
+        },
+        {
+          "org": "ballerina",
+          "package_name": "time",
+          "version": "2.0.0-alpha10",
+          "module_name": "time",
           "dependencies": []
         }
       ]

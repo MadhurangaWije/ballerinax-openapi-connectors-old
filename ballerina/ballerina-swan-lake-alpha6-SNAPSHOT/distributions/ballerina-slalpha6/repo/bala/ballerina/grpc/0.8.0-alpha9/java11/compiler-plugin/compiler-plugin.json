@@ -2,6 +2,6 @@
   "plugin_id": "grpc-compiler-plugin",
   "plugin_class": "org.ballerinalang.net.grpc.plugin.GrpcCompilerPlugin",
   "dependency_paths": [
-    "compiler-plugin/libs/grpc-compiler-plugin-0.8.0-alpha9-20210428-085800-5eda2d0.jar"
+    "compiler-plugin/libs/grpc-compiler-plugin-0.8.0-alpha9-20210430-143300-506a209.jar"
   ]
 }

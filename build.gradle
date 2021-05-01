@@ -88,10 +88,12 @@ dependencies {
 List<String> exceptFileList = [project.projectDir.absolutePath+"/.github/workflows/release.yml", project.projectDir.absolutePath+"/.github/workflows/ci.yml"]
 
 task validate {
+    println "File validating..."
     PathFinder.validateFiles(project.projectDir.absolutePath, exceptFileList)
 }
 
 task codegen {
+    println "Code generation..."
     List<String> changedPackagedYamlPathList = PathFinder.getYamlPathListForUpdatedPackages(project.projectDir.absolutePath, exceptFileList)
 
     changedPackagedYamlPathList.each{
@@ -105,6 +107,7 @@ task codegen {
 }
 
 task codeBuild {
+    println "Code building..."
     buildDirectoryList.each{
         path->exec{
             commandLine 'sh', '-c', "${ballerinaDistributionPath}/bal build -c ${path}"
@@ -116,6 +119,7 @@ task releaseConnector {
     if (project.hasProperty("release") ) {
         boolean release = new Boolean(project.property("release").toString())
         if(release){
+            println "Pushing to Ballerina central..."
             for (String path : buildDirectoryList) {
                 exec {
                     commandLine 'sh', '-c', "cd ${path}"
@@ -129,17 +133,18 @@ task releaseConnector {
     }
 }
 
-
 task updatePackageHashes {
     if (project.hasProperty("release")) {
         boolean release = new Boolean(project.property("release").toString())
         if (release) {
+            println "Update package hashes"
             PathFinder.updateChangedFilesHashes(project.projectDir.absolutePath, exceptFileList)
         }
     }
 }
 
 task cleanUp {
+    println "Cleaning..."
     buildDirectoryList.each {
         dir->exec{
             commandLine 'sh', '-c', "find ${dir} -name '*.bal' -type f -delete"
@@ -156,7 +161,6 @@ task cleanUp {
         }
     }
 }
-
 
 codeBuild.dependsOn codegen
 releaseConnector.dependsOn codeBuild

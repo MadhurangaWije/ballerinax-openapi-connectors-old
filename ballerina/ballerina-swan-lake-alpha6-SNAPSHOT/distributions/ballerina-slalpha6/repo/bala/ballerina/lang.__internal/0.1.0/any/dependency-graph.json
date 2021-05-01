@@ -39,16 +39,16 @@
       "dependencies": [
         {
           "org": "ballerina",
-          "package_name": "lang.object",
-          "version": "1.0.0",
-          "module_name": "lang.object",
+          "package_name": "jballerina.java",
+          "version": "0.9.0",
+          "module_name": "jballerina.java",
           "dependencies": []
         },
         {
           "org": "ballerina",
-          "package_name": "jballerina.java",
-          "version": "0.9.0",
-          "module_name": "jballerina.java",
+          "package_name": "lang.object",
+          "version": "1.0.0",
+          "module_name": "lang.object",
           "dependencies": []
         }
       ]

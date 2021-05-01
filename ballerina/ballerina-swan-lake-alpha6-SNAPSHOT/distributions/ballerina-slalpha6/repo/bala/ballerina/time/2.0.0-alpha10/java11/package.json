@@ -11,10 +11,10 @@
   "platform": "java11",
   "platformDependencies": [
     {
-      "path": "platform/java11/time-native-2.0.0-alpha10-20210428-073300-8245e3a.jar",
+      "path": "platform/java11/time-native-2.0.0-alpha10-20210430-123800-1a0da14.jar",
       "artifactId": "time",
       "groupId": "ballerina",
-      "version": "2.0.0-alpha10-20210428-073300-8245e3a"
+      "version": "2.0.0-alpha10-20210430-123800-1a0da14"
     }
   ],
   "template": false

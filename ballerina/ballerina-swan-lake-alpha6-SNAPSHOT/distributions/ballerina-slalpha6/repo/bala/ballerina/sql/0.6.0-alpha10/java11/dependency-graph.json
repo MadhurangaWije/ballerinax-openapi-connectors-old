@@ -2,24 +2,18 @@
   "packages": [
     {
       "org": "ballerina",
-      "name": "jballerina.java",
-      "version": "0.9.0",
-      "dependencies": []
-    },
-    {
-      "org": "ballerina",
       "name": "io",
       "version": "0.6.0-alpha9",
       "dependencies": [
         {
           "org": "ballerina",
-          "name": "lang.value",
-          "version": "1.0.0"
+          "name": "jballerina.java",
+          "version": "0.9.0"
         },
         {
           "org": "ballerina",
-          "name": "jballerina.java",
-          "version": "0.9.0"
+          "name": "lang.value",
+          "version": "1.0.0"
         }
       ]
     },
@@ -28,6 +22,33 @@
       "name": "lang.object",
       "version": "1.0.0",
       "dependencies": []
+    },
+    {
+      "org": "ballerina",
+      "name": "sql",
+      "version": "0.6.0-alpha10",
+      "dependencies": [
+        {
+          "org": "ballerina",
+          "name": "io",
+          "version": "0.6.0-alpha9"
+        },
+        {
+          "org": "ballerina",
+          "name": "time",
+          "version": "2.0.0-alpha10"
+        },
+        {
+          "org": "ballerina",
+          "name": "lang.object",
+          "version": "1.0.0"
+        },
+        {
+          "org": "ballerina",
+          "name": "jballerina.java",
+          "version": "0.9.0"
+        }
+      ]
     },
     {
       "org": "ballerina",
@@ -43,33 +64,6 @@
     },
     {
       "org": "ballerina",
-      "name": "sql",
-      "version": "0.6.0-alpha10",
-      "dependencies": [
-        {
-          "org": "ballerina",
-          "name": "jballerina.java",
-          "version": "0.9.0"
-        },
-        {
-          "org": "ballerina",
-          "name": "io",
-          "version": "0.6.0-alpha9"
-        },
-        {
-          "org": "ballerina",
-          "name": "lang.object",
-          "version": "1.0.0"
-        },
-        {
-          "org": "ballerina",
-          "name": "time",
-          "version": "2.0.0-alpha10"
-        }
-      ]
-    },
-    {
-      "org": "ballerina",
       "name": "time",
       "version": "2.0.0-alpha10",
       "dependencies": [
@@ -79,6 +73,12 @@
           "version": "0.9.0"
         }
       ]
+    },
+    {
+      "org": "ballerina",
+      "name": "jballerina.java",
+      "version": "0.9.0",
+      "dependencies": []
     }
   ],
   "modules": [
@@ -90,13 +90,6 @@
       "dependencies": [
         {
           "org": "ballerina",
-          "package_name": "io",
-          "version": "0.6.0-alpha9",
-          "module_name": "io",
-          "dependencies": []
-        },
-        {
-          "org": "ballerina",
           "package_name": "lang.object",
           "version": "1.0.0",
           "module_name": "lang.object",
@@ -104,16 +97,23 @@
         },
         {
           "org": "ballerina",
-          "package_name": "jballerina.java",
-          "version": "0.9.0",
-          "module_name": "jballerina.java",
+          "package_name": "time",
+          "version": "2.0.0-alpha10",
+          "module_name": "time",
           "dependencies": []
         },
         {
           "org": "ballerina",
-          "package_name": "time",
-          "version": "2.0.0-alpha10",
-          "module_name": "time",
+          "package_name": "io",
+          "version": "0.6.0-alpha9",
+          "module_name": "io",
+          "dependencies": []
+        },
+        {
+          "org": "ballerina",
+          "package_name": "jballerina.java",
+          "version": "0.9.0",
+          "module_name": "jballerina.java",
           "dependencies": []
         }
       ]

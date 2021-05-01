@@ -11,10 +11,10 @@
   "platform": "java11",
   "platformDependencies": [
     {
-      "path": "platform/java11/file-native-0.7.0-alpha9-20210428-075400-d56b979.jar",
+      "path": "platform/java11/file-native-0.7.0-alpha9-20210430-130200-63ea83f.jar",
       "artifactId": "file",
       "groupId": "ballerina",
-      "version": "0.7.0-alpha9-20210428-075400-d56b979"
+      "version": "0.7.0-alpha9-20210430-130200-63ea83f"
     },
     {
       "path": "platform/java11/org.wso2.transport.local-file-system-6.0.55.jar",

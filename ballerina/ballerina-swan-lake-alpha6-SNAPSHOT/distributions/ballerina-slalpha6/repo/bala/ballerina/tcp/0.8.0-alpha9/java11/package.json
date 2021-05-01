@@ -11,10 +11,10 @@
   "platform": "java11",
   "platformDependencies": [
     {
-      "path": "platform/java11/tcp-native-0.8.0-alpha9-20210428-075900-4ec40c9.jar",
+      "path": "platform/java11/tcp-native-0.8.0-alpha9-20210430-130900-61bc054.jar",
       "artifactId": "tcp",
       "groupId": "ballerina",
-      "version": "0.8.0-alpha9-20210428-075900-4ec40c9"
+      "version": "0.8.0-alpha9-20210430-130900-61bc054"
     },
     {
       "path": "platform/java11/netty-handler-4.1.50.Final.jar",

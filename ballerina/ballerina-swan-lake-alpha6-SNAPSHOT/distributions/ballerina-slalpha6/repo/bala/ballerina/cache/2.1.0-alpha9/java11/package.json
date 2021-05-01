@@ -11,10 +11,10 @@
   "platform": "java11",
   "platformDependencies": [
     {
-      "path": "platform/java11/cache-native-2.1.0-alpha9-20210428-075400-0297034.jar",
+      "path": "platform/java11/cache-native-2.1.0-alpha9-20210430-130200-b24b29a.jar",
       "artifactId": "cache",
       "groupId": "ballerina",
-      "version": "2.1.0-alpha9-20210428-075400-0297034"
+      "version": "2.1.0-alpha9-20210430-130200-b24b29a"
     }
   ],
   "template": false

@@ -2,6 +2,6 @@
   "plugin_id": "tcp-plugin",
   "plugin_class": "io.ballerina.stdlib.tcp.compiler.TcpCompilerPlugin",
   "dependency_paths": [
-    "compiler-plugin/libs/tcp-compiler-plugin-0.8.0-alpha9-20210428-075900-4ec40c9.jar"
+    "compiler-plugin/libs/tcp-compiler-plugin-0.8.0-alpha9-20210430-130900-61bc054.jar"
   ]
 }

@@ -35,10 +35,10 @@
       "version": "7.4.0"
     },
     {
-      "path": "platform/java11/email-native-1.1.0-alpha9-20210428-081200-dfdaad2.jar",
+      "path": "platform/java11/email-native-1.1.0-alpha9-20210430-131800-6f932ad.jar",
       "artifactId": "email",
       "groupId": "ballerina",
-      "version": "1.1.0-alpha9-20210428-081200-dfdaad2"
+      "version": "1.1.0-alpha9-20210430-131800-6f932ad"
     }
   ],
   "template": false

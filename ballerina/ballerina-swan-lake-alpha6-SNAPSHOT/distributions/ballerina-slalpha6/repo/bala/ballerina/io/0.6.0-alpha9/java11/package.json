@@ -11,10 +11,10 @@
   "platform": "java11",
   "platformDependencies": [
     {
-      "path": "platform/java11/io-native-0.6.0-alpha9-20210428-073400-f5fd24c.jar",
+      "path": "platform/java11/io-native-0.6.0-alpha9-20210430-123800-34bccda.jar",
       "artifactId": "io",
       "groupId": "ballerina",
-      "version": "0.6.0-alpha9-20210428-073400-f5fd24c"
+      "version": "0.6.0-alpha9-20210430-123800-34bccda"
     }
   ],
   "template": false

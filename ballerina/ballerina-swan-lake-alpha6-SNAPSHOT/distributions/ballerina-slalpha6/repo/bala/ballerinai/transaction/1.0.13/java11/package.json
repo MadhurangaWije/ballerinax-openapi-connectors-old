@@ -11,10 +11,10 @@
   "platform": "java11",
   "platformDependencies": [
     {
-      "path": "platform/java11/transaction-native-1.0.13-20210428-090100-df50548.jar",
+      "path": "platform/java11/transaction-native-1.0.13-20210430-143900-94bc870.jar",
       "artifactId": "transaction",
       "groupId": "ballerina",
-      "version": "1.0.13-20210428-090100-df50548"
+      "version": "1.0.13-20210430-143900-94bc870"
     }
   ],
   "template": false

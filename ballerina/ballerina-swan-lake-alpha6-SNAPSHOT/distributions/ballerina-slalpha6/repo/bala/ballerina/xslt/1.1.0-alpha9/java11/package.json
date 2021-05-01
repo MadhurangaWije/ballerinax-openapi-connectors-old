@@ -11,10 +11,10 @@
   "platform": "java11",
   "platformDependencies": [
     {
-      "path": "platform/java11/xslt-native-1.1.0-alpha9-20210428-074100-8c35859.jar",
+      "path": "platform/java11/xslt-native-1.1.0-alpha9-20210430-124800-201e7c0.jar",
       "artifactId": "xslt",
       "groupId": "org.ballerinalang.xslt",
-      "version": "1.1.0-alpha9-20210428-074100-8c35859"
+      "version": "1.1.0-alpha9-20210430-124800-201e7c0"
     },
     {
       "path": "platform/java11/jakarta.activation-1.2.2.jar",

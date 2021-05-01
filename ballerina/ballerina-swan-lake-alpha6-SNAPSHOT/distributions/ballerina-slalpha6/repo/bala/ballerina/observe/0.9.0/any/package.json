@@ -11,7 +11,7 @@
   "platform": "java11",
   "platformDependencies": [
     {
-      "path": "platform/java11/ballerina-observability-2.0.0-alpha9-20210428-013500-af5f5cfc.jar",
+      "path": "platform/java11/ballerina-observability-2.0.0-alpha9-20210429-232900-7e5ce4cf.jar",
       "artifactId": "observability",
       "groupId": "ballerina",
       "version": "0.9.0"

@@ -45,16 +45,16 @@
       "dependencies": [
         {
           "org": "ballerina",
-          "package_name": "observe",
+          "package_name": "jballerina.java",
           "version": "0.9.0",
-          "module_name": "observe",
+          "module_name": "jballerina.java",
           "dependencies": []
         },
         {
           "org": "ballerina",
-          "package_name": "jballerina.java",
+          "package_name": "observe",
           "version": "0.9.0",
-          "module_name": "jballerina.java",
+          "module_name": "observe",
           "dependencies": []
         }
       ]

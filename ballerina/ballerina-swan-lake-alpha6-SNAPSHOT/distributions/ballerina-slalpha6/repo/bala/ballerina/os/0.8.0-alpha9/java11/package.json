@@ -11,16 +11,16 @@
   "platform": "java11",
   "platformDependencies": [
     {
-      "path": "platform/java11/os-native-0.8.0-alpha9-20210428-074000-9d25109.jar",
+      "path": "platform/java11/os-native-0.8.0-alpha9-20210430-124800-e768a20.jar",
       "artifactId": "os",
       "groupId": "ballerina",
-      "version": "0.8.0-alpha9-20210428-074000-9d25109"
+      "version": "0.8.0-alpha9-20210430-124800-e768a20"
     },
     {
-      "path": "platform/java11/io-native-0.6.0-alpha9-20210428-073400-f5fd24c.jar",
+      "path": "platform/java11/io-native-0.6.0-alpha9-20210430-123800-34bccda.jar",
       "artifactId": "io-native",
       "groupId": "org.ballerinalang",
-      "version": "0.6.0-alpha9-20210428-073400-f5fd24c"
+      "version": "0.6.0-alpha9-20210430-123800-34bccda"
     }
   ],
   "template": false

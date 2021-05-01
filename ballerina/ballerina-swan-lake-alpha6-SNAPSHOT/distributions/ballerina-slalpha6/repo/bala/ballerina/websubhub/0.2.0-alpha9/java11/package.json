@@ -11,10 +11,10 @@
   "platform": "java11",
   "platformDependencies": [
     {
-      "path": "platform/java11/websubhub-native-0.2.0-alpha9-20210428-090200-1c7729b.jar",
+      "path": "platform/java11/websubhub-native-0.2.0-alpha9-20210430-144000-ced31f6.jar",
       "artifactId": "web-sub",
       "groupId": "ballerina",
-      "version": "0.2.0-alpha9-20210428-090200-1c7729b"
+      "version": "0.2.0-alpha9-20210430-144000-ced31f6"
     }
   ],
   "template": false

@@ -2,40 +2,18 @@
   "packages": [
     {
       "org": "ballerina",
-      "name": "lang.value",
-      "version": "1.0.0",
+      "name": "task",
+      "version": "2.0.0-alpha10",
       "dependencies": [
         {
           "org": "ballerina",
-          "name": "jballerina.java",
-          "version": "0.9.0"
-        }
-      ]
-    },
-    {
-      "org": "ballerina",
-      "name": "email",
-      "version": "1.1.0-alpha9",
-      "dependencies": [
-        {
-          "org": "ballerina",
-          "name": "mime",
-          "version": "1.1.0-alpha9"
-        },
-        {
-          "org": "ballerina",
-          "name": "jballerina.java",
-          "version": "0.9.0"
-        },
-        {
-          "org": "ballerina",
-          "name": "log",
-          "version": "1.1.0-alpha9"
-        },
-        {
-          "org": "ballerina",
-          "name": "task",
+          "name": "time",
           "version": "2.0.0-alpha10"
+        },
+        {
+          "org": "ballerina",
+          "name": "jballerina.java",
+          "version": "0.9.0"
         }
       ]
     },
@@ -71,23 +49,13 @@
     },
     {
       "org": "ballerina",
-      "name": "mime",
-      "version": "1.1.0-alpha9",
+      "name": "lang.value",
+      "version": "1.0.0",
       "dependencies": [
-        {
-          "org": "ballerina",
-          "name": "io",
-          "version": "0.6.0-alpha9"
-        },
         {
           "org": "ballerina",
           "name": "jballerina.java",
           "version": "0.9.0"
-        },
-        {
-          "org": "ballerina",
-          "name": "lang.int",
-          "version": "1.1.0"
         }
       ]
     },
@@ -98,30 +66,13 @@
       "dependencies": [
         {
           "org": "ballerina",
+          "name": "jballerina.java",
+          "version": "0.9.0"
+        },
+        {
+          "org": "ballerina",
           "name": "lang.value",
           "version": "1.0.0"
-        },
-        {
-          "org": "ballerina",
-          "name": "jballerina.java",
-          "version": "0.9.0"
-        }
-      ]
-    },
-    {
-      "org": "ballerina",
-      "name": "task",
-      "version": "2.0.0-alpha10",
-      "dependencies": [
-        {
-          "org": "ballerina",
-          "name": "jballerina.java",
-          "version": "0.9.0"
-        },
-        {
-          "org": "ballerina",
-          "name": "time",
-          "version": "2.0.0-alpha10"
         }
       ]
     },
@@ -136,6 +87,55 @@
           "version": "0.9.0"
         }
       ]
+    },
+    {
+      "org": "ballerina",
+      "name": "email",
+      "version": "1.1.0-alpha9",
+      "dependencies": [
+        {
+          "org": "ballerina",
+          "name": "task",
+          "version": "2.0.0-alpha10"
+        },
+        {
+          "org": "ballerina",
+          "name": "mime",
+          "version": "1.1.0-alpha9"
+        },
+        {
+          "org": "ballerina",
+          "name": "jballerina.java",
+          "version": "0.9.0"
+        },
+        {
+          "org": "ballerina",
+          "name": "log",
+          "version": "1.1.0-alpha9"
+        }
+      ]
+    },
+    {
+      "org": "ballerina",
+      "name": "mime",
+      "version": "1.1.0-alpha9",
+      "dependencies": [
+        {
+          "org": "ballerina",
+          "name": "jballerina.java",
+          "version": "0.9.0"
+        },
+        {
+          "org": "ballerina",
+          "name": "lang.int",
+          "version": "1.1.0"
+        },
+        {
+          "org": "ballerina",
+          "name": "io",
+          "version": "0.6.0-alpha9"
+        }
+      ]
     }
   ],
   "modules": [
@@ -147,9 +147,9 @@
       "dependencies": [
         {
           "org": "ballerina",
-          "package_name": "log",
+          "package_name": "mime",
           "version": "1.1.0-alpha9",
-          "module_name": "log",
+          "module_name": "mime",
           "dependencies": []
         },
         {
@@ -161,9 +161,9 @@
         },
         {
           "org": "ballerina",
-          "package_name": "mime",
+          "package_name": "log",
           "version": "1.1.0-alpha9",
-          "module_name": "mime",
+          "module_name": "log",
           "dependencies": []
         },
         {

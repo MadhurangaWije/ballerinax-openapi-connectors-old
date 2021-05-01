@@ -11,16 +11,16 @@
   "platform": "java11",
   "platformDependencies": [
     {
-      "path": "platform/java11/websub-native-1.2.0-alpha9-20210428-090100-4d313fd.jar",
+      "path": "platform/java11/websub-native-1.2.0-alpha9-20210430-144000-e3dc550.jar",
       "artifactId": "web-sub",
       "groupId": "ballerina",
-      "version": "1.2.0-alpha9-20210428-090100-4d313fd"
+      "version": "1.2.0-alpha9-20210430-144000-e3dc550"
     },
     {
-      "path": "platform/java11/http-native-1.1.0-alpha9-20210428-084400-3febd55.jar",
+      "path": "platform/java11/http-native-1.1.0-alpha9-20210430-141500-a1cdf47.jar",
       "artifactId": "http-native",
       "groupId": "org.ballerinalang",
-      "version": "1.1.0-alpha9-20210428-084400-3febd55"
+      "version": "1.1.0-alpha9-20210430-141500-a1cdf47"
     },
     {
       "path": "platform/java11/netty-common-4.1.50.Final.jar",

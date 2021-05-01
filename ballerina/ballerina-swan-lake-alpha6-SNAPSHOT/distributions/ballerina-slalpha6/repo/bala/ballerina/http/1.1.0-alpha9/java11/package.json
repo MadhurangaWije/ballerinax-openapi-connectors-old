@@ -11,16 +11,16 @@
   "platform": "java11",
   "platformDependencies": [
     {
-      "path": "platform/java11/http-native-1.1.0-alpha9-20210428-084400-3febd55.jar",
+      "path": "platform/java11/http-native-1.1.0-alpha9-20210430-141500-a1cdf47.jar",
       "artifactId": "http",
       "groupId": "ballerina",
-      "version": "1.1.0-alpha9-20210428-084400-3febd55"
+      "version": "1.1.0-alpha9-20210430-141500-a1cdf47"
     },
     {
-      "path": "platform/java11/mime-native-1.1.0-alpha9-20210428-075800-a9fb944.jar",
+      "path": "platform/java11/mime-native-1.1.0-alpha9-20210430-130800-9719754.jar",
       "artifactId": "mime-native",
       "groupId": "ballerina",
-      "version": "1.1.0-alpha9-20210428-075800-a9fb944"
+      "version": "1.1.0-alpha9-20210430-130800-9719754"
     },
     {
       "path": "platform/java11/netty-common-4.1.50.Final.jar",

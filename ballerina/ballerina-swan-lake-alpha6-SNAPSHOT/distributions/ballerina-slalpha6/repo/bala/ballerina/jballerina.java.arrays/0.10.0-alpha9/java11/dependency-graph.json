@@ -2,12 +2,6 @@
   "packages": [
     {
       "org": "ballerina",
-      "name": "jballerina.java",
-      "version": "0.9.0",
-      "dependencies": []
-    },
-    {
-      "org": "ballerina",
       "name": "jballerina.java.arrays",
       "version": "0.10.0-alpha9",
       "dependencies": [
@@ -17,6 +11,12 @@
           "version": "0.9.0"
         }
       ]
+    },
+    {
+      "org": "ballerina",
+      "name": "jballerina.java",
+      "version": "0.9.0",
+      "dependencies": []
     }
   ],
   "modules": [

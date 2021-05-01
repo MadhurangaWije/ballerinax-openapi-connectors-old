@@ -14,12 +14,6 @@
     },
     {
       "org": "ballerina",
-      "name": "jballerina.java",
-      "version": "0.9.0",
-      "dependencies": []
-    },
-    {
-      "org": "ballerina",
       "name": "crypto",
       "version": "1.1.0-alpha9",
       "dependencies": [
@@ -34,6 +28,12 @@
           "version": "0.9.0"
         }
       ]
+    },
+    {
+      "org": "ballerina",
+      "name": "jballerina.java",
+      "version": "0.9.0",
+      "dependencies": []
     }
   ],
   "modules": [
@@ -45,16 +45,16 @@
       "dependencies": [
         {
           "org": "ballerina",
-          "package_name": "jballerina.java",
-          "version": "0.9.0",
-          "module_name": "jballerina.java",
+          "package_name": "time",
+          "version": "2.0.0-alpha10",
+          "module_name": "time",
           "dependencies": []
         },
         {
           "org": "ballerina",
-          "package_name": "time",
-          "version": "2.0.0-alpha10",
-          "module_name": "time",
+          "package_name": "jballerina.java",
+          "version": "0.9.0",
+          "module_name": "jballerina.java",
           "dependencies": []
         }
       ]

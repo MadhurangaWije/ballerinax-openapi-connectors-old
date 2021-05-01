@@ -11,10 +11,10 @@
   "platform": "java11",
   "platformDependencies": [
     {
-      "path": "platform/java11/task-native-2.0.0-alpha10-20210428-074500-ef8b668.jar",
+      "path": "platform/java11/task-native-2.0.0-alpha10-20210430-125200-f508328.jar",
       "artifactId": "task",
       "groupId": "ballerina",
-      "version": "2.0.0-alpha10-20210428-074500-ef8b668"
+      "version": "2.0.0-alpha10-20210430-125200-f508328"
     },
     {
       "path": "platform/java11/quartz-2.3.1.jar",

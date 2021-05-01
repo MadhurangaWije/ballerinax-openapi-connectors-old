@@ -253,7 +253,7 @@ elif [[ $1 == "run" ]] && [[ $2 == *.jar ]]; then # if 1st arg is "run" and 2nd 
         $JAVA_OPTS \
         -classpath "$BALLERINA_CLASSPATH" \
         -Dballerina.home="$BALLERINA_HOME" \
-        -Dballerina.version=2.0.0-alpha9-20210428-013500-af5f5cfc \
+        -Dballerina.version=2.0.0-alpha9-20210429-232900-7e5ce4cf \
         -Djava.util.logging.config.class="org.ballerinalang.logging.util.LogConfigReader" \
         -Djava.util.logging.manager="org.ballerinalang.logging.BLogManager" \
         -Denable.nonblocking=false \
@@ -271,7 +271,7 @@ else
         $JAVA_OPTS \
         -classpath "$BALLERINA_CLASSPATH" \
         -Dballerina.home="$BALLERINA_HOME" \
-        -Dballerina.version=2.0.0-alpha9-20210428-013500-af5f5cfc \
+        -Dballerina.version=2.0.0-alpha9-20210429-232900-7e5ce4cf \
         -Djava.util.logging.config.class="org.ballerinalang.logging.util.LogConfigReader" \
         -Djava.util.logging.manager="org.ballerinalang.logging.BLogManager" \
         -Denable.nonblocking=false \

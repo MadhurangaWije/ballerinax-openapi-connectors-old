@@ -19,20 +19,8 @@
     },
     {
       "org": "ballerina",
-      "name": "time",
+      "name": "task",
       "version": "2.0.0-alpha10",
-      "dependencies": [
-        {
-          "org": "ballerina",
-          "name": "jballerina.java",
-          "version": "0.9.0"
-        }
-      ]
-    },
-    {
-      "org": "ballerina",
-      "name": "cache",
-      "version": "2.1.0-alpha9",
       "dependencies": [
         {
           "org": "ballerina",
@@ -43,19 +31,57 @@
           "org": "ballerina",
           "name": "jballerina.java",
           "version": "0.9.0"
-        },
-        {
-          "org": "ballerina",
-          "name": "task",
-          "version": "2.0.0-alpha10"
         }
       ]
     },
     {
       "org": "ballerina",
-      "name": "lang.object",
+      "name": "oauth2",
+      "version": "1.1.0-alpha9",
+      "dependencies": [
+        {
+          "org": "ballerina",
+          "name": "regex",
+          "version": "0.7.0-alpha9"
+        },
+        {
+          "org": "ballerina",
+          "name": "crypto",
+          "version": "1.1.0-alpha9"
+        },
+        {
+          "org": "ballerina",
+          "name": "time",
+          "version": "2.0.0-alpha10"
+        },
+        {
+          "org": "ballerina",
+          "name": "log",
+          "version": "1.1.0-alpha9"
+        },
+        {
+          "org": "ballerina",
+          "name": "cache",
+          "version": "2.1.0-alpha9"
+        },
+        {
+          "org": "ballerina",
+          "name": "jballerina.java",
+          "version": "0.9.0"
+        }
+      ]
+    },
+    {
+      "org": "ballerina",
+      "name": "lang.decimal",
       "version": "1.0.0",
-      "dependencies": []
+      "dependencies": [
+        {
+          "org": "ballerina",
+          "name": "jballerina.java",
+          "version": "0.9.0"
+        }
+      ]
     },
     {
       "org": "ballerina",
@@ -65,38 +91,48 @@
     },
     {
       "org": "ballerina",
+      "name": "regex",
+      "version": "0.7.0-alpha9",
+      "dependencies": [
+        {
+          "org": "ballerina",
+          "name": "jballerina.java",
+          "version": "0.9.0"
+        }
+      ]
+    },
+    {
+      "org": "ballerina",
       "name": "lang.array",
       "version": "1.1.0",
       "dependencies": [
         {
           "org": "ballerina",
-          "name": "lang.__internal",
-          "version": "0.1.0"
+          "name": "jballerina.java",
+          "version": "0.9.0"
         },
         {
           "org": "ballerina",
-          "name": "jballerina.java",
-          "version": "0.9.0"
+          "name": "lang.__internal",
+          "version": "0.1.0"
         }
       ]
     },
     {
       "org": "ballerina",
-      "name": "lang.int",
-      "version": "1.1.0",
+      "name": "mime",
+      "version": "1.1.0-alpha9",
       "dependencies": [
         {
           "org": "ballerina",
-          "name": "jballerina.java",
-          "version": "0.9.0"
-        }
-      ]
-    },
-    {
-      "org": "ballerina",
-      "name": "lang.value",
-      "version": "1.0.0",
-      "dependencies": [
+          "name": "io",
+          "version": "0.6.0-alpha9"
+        },
+        {
+          "org": "ballerina",
+          "name": "lang.int",
+          "version": "1.1.0"
+        },
         {
           "org": "ballerina",
           "name": "jballerina.java",
@@ -116,18 +152,13 @@
         },
         {
           "org": "ballerina",
-          "name": "jballerina.java",
-          "version": "0.9.0"
-        },
-        {
-          "org": "ballerina",
           "name": "lang.array",
           "version": "1.1.0"
         },
         {
           "org": "ballerina",
-          "name": "log",
-          "version": "1.1.0-alpha9"
+          "name": "lang.string",
+          "version": "1.1.0"
         },
         {
           "org": "ballerina",
@@ -136,8 +167,47 @@
         },
         {
           "org": "ballerina",
-          "name": "lang.string",
-          "version": "1.1.0"
+          "name": "log",
+          "version": "1.1.0-alpha9"
+        },
+        {
+          "org": "ballerina",
+          "name": "jballerina.java",
+          "version": "0.9.0"
+        }
+      ]
+    },
+    {
+      "org": "ballerina",
+      "name": "os",
+      "version": "0.8.0-alpha9",
+      "dependencies": [
+        {
+          "org": "ballerina",
+          "name": "jballerina.java",
+          "version": "0.9.0"
+        }
+      ]
+    },
+    {
+      "org": "ballerina",
+      "name": "graphql",
+      "version": "0.2.0-alpha9",
+      "dependencies": [
+        {
+          "org": "ballerina",
+          "name": "http",
+          "version": "1.1.0-alpha9"
+        },
+        {
+          "org": "ballerina",
+          "name": "lang.runtime",
+          "version": "0.0.1"
+        },
+        {
+          "org": "ballerina",
+          "name": "jballerina.java",
+          "version": "0.9.0"
         }
       ]
     },
@@ -145,6 +215,18 @@
       "org": "ballerina",
       "name": "observe",
       "version": "0.9.0",
+      "dependencies": [
+        {
+          "org": "ballerina",
+          "name": "jballerina.java",
+          "version": "0.9.0"
+        }
+      ]
+    },
+    {
+      "org": "ballerina",
+      "name": "lang.value",
+      "version": "1.0.0",
       "dependencies": [
         {
           "org": "ballerina",
@@ -172,9 +254,29 @@
     },
     {
       "org": "ballerina",
-      "name": "os",
-      "version": "0.8.0-alpha9",
+      "name": "file",
+      "version": "0.7.0-alpha9",
       "dependencies": [
+        {
+          "org": "ballerina",
+          "name": "regex",
+          "version": "0.7.0-alpha9"
+        },
+        {
+          "org": "ballerina",
+          "name": "time",
+          "version": "2.0.0-alpha10"
+        },
+        {
+          "org": "ballerina",
+          "name": "log",
+          "version": "1.1.0-alpha9"
+        },
+        {
+          "org": "ballerina",
+          "name": "os",
+          "version": "0.8.0-alpha9"
+        },
         {
           "org": "ballerina",
           "name": "jballerina.java",
@@ -184,13 +286,103 @@
     },
     {
       "org": "ballerina",
-      "name": "log",
+      "name": "http",
       "version": "1.1.0-alpha9",
       "dependencies": [
         {
           "org": "ballerina",
+          "name": "io",
+          "version": "0.6.0-alpha9"
+        },
+        {
+          "org": "ballerina",
+          "name": "oauth2",
+          "version": "1.1.0-alpha9"
+        },
+        {
+          "org": "ballerina",
+          "name": "lang.decimal",
+          "version": "1.0.0"
+        },
+        {
+          "org": "ballerina",
+          "name": "crypto",
+          "version": "1.1.0-alpha9"
+        },
+        {
+          "org": "ballerina",
+          "name": "time",
+          "version": "2.0.0-alpha10"
+        },
+        {
+          "org": "ballerina",
           "name": "jballerina.java",
           "version": "0.9.0"
+        },
+        {
+          "org": "ballerina",
+          "name": "regex",
+          "version": "0.7.0-alpha9"
+        },
+        {
+          "org": "ballerina",
+          "name": "lang.int",
+          "version": "1.1.0"
+        },
+        {
+          "org": "ballerina",
+          "name": "lang.array",
+          "version": "1.1.0"
+        },
+        {
+          "org": "ballerina",
+          "name": "lang.string",
+          "version": "1.1.0"
+        },
+        {
+          "org": "ballerina",
+          "name": "mime",
+          "version": "1.1.0-alpha9"
+        },
+        {
+          "org": "ballerina",
+          "name": "auth",
+          "version": "1.1.0-alpha9"
+        },
+        {
+          "org": "ballerina",
+          "name": "jwt",
+          "version": "1.1.0-alpha9"
+        },
+        {
+          "org": "ballerina",
+          "name": "lang.runtime",
+          "version": "0.0.1"
+        },
+        {
+          "org": "ballerina",
+          "name": "log",
+          "version": "1.1.0-alpha9"
+        },
+        {
+          "org": "ballerina",
+          "name": "cache",
+          "version": "2.1.0-alpha9"
+        },
+        {
+          "org": "ballerina",
+          "name": "observe",
+          "version": "0.9.0"
+        },
+        {
+          "org": "ballerina",
+          "name": "lang.value",
+          "version": "1.0.0"
+        },
+        {
+          "org": "ballerina",
+          "name": "file",
+          "version": "0.7.0-alpha9"
         }
       ]
     },
@@ -213,191 +405,8 @@
     },
     {
       "org": "ballerina",
-      "name": "lang.runtime",
-      "version": "0.0.1",
-      "dependencies": [
-        {
-          "org": "ballerina",
-          "name": "jballerina.java",
-          "version": "0.9.0"
-        },
-        {
-          "org": "ballerina",
-          "name": "lang.array",
-          "version": "1.1.0"
-        },
-        {
-          "org": "ballerina",
-          "name": "lang.value",
-          "version": "1.0.0"
-        }
-      ]
-    },
-    {
-      "org": "ballerina",
-      "name": "http",
-      "version": "1.1.0-alpha9",
-      "dependencies": [
-        {
-          "org": "ballerina",
-          "name": "mime",
-          "version": "1.1.0-alpha9"
-        },
-        {
-          "org": "ballerina",
-          "name": "io",
-          "version": "0.6.0-alpha9"
-        },
-        {
-          "org": "ballerina",
-          "name": "time",
-          "version": "2.0.0-alpha10"
-        },
-        {
-          "org": "ballerina",
-          "name": "oauth2",
-          "version": "1.1.0-alpha9"
-        },
-        {
-          "org": "ballerina",
-          "name": "regex",
-          "version": "0.7.0-alpha9"
-        },
-        {
-          "org": "ballerina",
-          "name": "cache",
-          "version": "2.1.0-alpha9"
-        },
-        {
-          "org": "ballerina",
-          "name": "jballerina.java",
-          "version": "0.9.0"
-        },
-        {
-          "org": "ballerina",
-          "name": "lang.array",
-          "version": "1.1.0"
-        },
-        {
-          "org": "ballerina",
-          "name": "lang.int",
-          "version": "1.1.0"
-        },
-        {
-          "org": "ballerina",
-          "name": "file",
-          "version": "0.7.0-alpha9"
-        },
-        {
-          "org": "ballerina",
-          "name": "lang.value",
-          "version": "1.0.0"
-        },
-        {
-          "org": "ballerina",
-          "name": "auth",
-          "version": "1.1.0-alpha9"
-        },
-        {
-          "org": "ballerina",
-          "name": "lang.string",
-          "version": "1.1.0"
-        },
-        {
-          "org": "ballerina",
-          "name": "observe",
-          "version": "0.9.0"
-        },
-        {
-          "org": "ballerina",
-          "name": "jwt",
-          "version": "1.1.0-alpha9"
-        },
-        {
-          "org": "ballerina",
-          "name": "lang.decimal",
-          "version": "1.0.0"
-        },
-        {
-          "org": "ballerina",
-          "name": "log",
-          "version": "1.1.0-alpha9"
-        },
-        {
-          "org": "ballerina",
-          "name": "crypto",
-          "version": "1.1.0-alpha9"
-        },
-        {
-          "org": "ballerina",
-          "name": "lang.runtime",
-          "version": "0.0.1"
-        }
-      ]
-    },
-    {
-      "org": "ballerina",
-      "name": "mime",
-      "version": "1.1.0-alpha9",
-      "dependencies": [
-        {
-          "org": "ballerina",
-          "name": "io",
-          "version": "0.6.0-alpha9"
-        },
-        {
-          "org": "ballerina",
-          "name": "jballerina.java",
-          "version": "0.9.0"
-        },
-        {
-          "org": "ballerina",
-          "name": "lang.int",
-          "version": "1.1.0"
-        }
-      ]
-    },
-    {
-      "org": "ballerina",
-      "name": "oauth2",
-      "version": "1.1.0-alpha9",
-      "dependencies": [
-        {
-          "org": "ballerina",
-          "name": "time",
-          "version": "2.0.0-alpha10"
-        },
-        {
-          "org": "ballerina",
-          "name": "regex",
-          "version": "0.7.0-alpha9"
-        },
-        {
-          "org": "ballerina",
-          "name": "cache",
-          "version": "2.1.0-alpha9"
-        },
-        {
-          "org": "ballerina",
-          "name": "jballerina.java",
-          "version": "0.9.0"
-        },
-        {
-          "org": "ballerina",
-          "name": "log",
-          "version": "1.1.0-alpha9"
-        },
-        {
-          "org": "ballerina",
-          "name": "crypto",
-          "version": "1.1.0-alpha9"
-        }
-      ]
-    },
-    {
-      "org": "ballerina",
-      "name": "regex",
-      "version": "0.7.0-alpha9",
+      "name": "time",
+      "version": "2.0.0-alpha10",
       "dependencies": [
         {
           "org": "ballerina",
@@ -408,33 +417,13 @@
     },
     {
       "org": "ballerina",
-      "name": "file",
-      "version": "0.7.0-alpha9",
+      "name": "lang.int",
+      "version": "1.1.0",
       "dependencies": [
-        {
-          "org": "ballerina",
-          "name": "time",
-          "version": "2.0.0-alpha10"
-        },
-        {
-          "org": "ballerina",
-          "name": "os",
-          "version": "0.8.0-alpha9"
-        },
-        {
-          "org": "ballerina",
-          "name": "regex",
-          "version": "0.7.0-alpha9"
-        },
         {
           "org": "ballerina",
           "name": "jballerina.java",
           "version": "0.9.0"
-        },
-        {
-          "org": "ballerina",
-          "name": "log",
-          "version": "1.1.0-alpha9"
         }
       ]
     },
@@ -452,9 +441,35 @@
     },
     {
       "org": "ballerina",
+      "name": "lang.object",
+      "version": "1.0.0",
+      "dependencies": []
+    },
+    {
+      "org": "ballerina",
       "name": "jwt",
       "version": "1.1.0-alpha9",
       "dependencies": [
+        {
+          "org": "ballerina",
+          "name": "regex",
+          "version": "0.7.0-alpha9"
+        },
+        {
+          "org": "ballerina",
+          "name": "lang.int",
+          "version": "1.1.0"
+        },
+        {
+          "org": "ballerina",
+          "name": "lang.string",
+          "version": "1.1.0"
+        },
+        {
+          "org": "ballerina",
+          "name": "crypto",
+          "version": "1.1.0-alpha9"
+        },
         {
           "org": "ballerina",
           "name": "time",
@@ -462,8 +477,8 @@
         },
         {
           "org": "ballerina",
-          "name": "regex",
-          "version": "0.7.0-alpha9"
+          "name": "log",
+          "version": "1.1.0-alpha9"
         },
         {
           "org": "ballerina",
@@ -474,34 +489,19 @@
           "org": "ballerina",
           "name": "jballerina.java",
           "version": "0.9.0"
-        },
-        {
-          "org": "ballerina",
-          "name": "lang.int",
-          "version": "1.1.0"
-        },
-        {
-          "org": "ballerina",
-          "name": "log",
-          "version": "1.1.0-alpha9"
-        },
-        {
-          "org": "ballerina",
-          "name": "crypto",
-          "version": "1.1.0-alpha9"
-        },
-        {
-          "org": "ballerina",
-          "name": "lang.string",
-          "version": "1.1.0"
         }
       ]
     },
     {
       "org": "ballerina",
-      "name": "graphql",
-      "version": "0.2.0-alpha9",
+      "name": "lang.runtime",
+      "version": "0.0.1",
       "dependencies": [
+        {
+          "org": "ballerina",
+          "name": "lang.array",
+          "version": "1.1.0"
+        },
         {
           "org": "ballerina",
           "name": "jballerina.java",
@@ -509,20 +509,15 @@
         },
         {
           "org": "ballerina",
-          "name": "lang.runtime",
-          "version": "0.0.1"
-        },
-        {
-          "org": "ballerina",
-          "name": "http",
-          "version": "1.1.0-alpha9"
+          "name": "lang.value",
+          "version": "1.0.0"
         }
       ]
     },
     {
       "org": "ballerina",
-      "name": "lang.decimal",
-      "version": "1.0.0",
+      "name": "log",
+      "version": "1.1.0-alpha9",
       "dependencies": [
         {
           "org": "ballerina",
@@ -533,9 +528,14 @@
     },
     {
       "org": "ballerina",
-      "name": "task",
-      "version": "2.0.0-alpha10",
+      "name": "cache",
+      "version": "2.1.0-alpha9",
       "dependencies": [
+        {
+          "org": "ballerina",
+          "name": "task",
+          "version": "2.0.0-alpha10"
+        },
         {
           "org": "ballerina",
           "name": "time",
@@ -554,7 +554,7 @@
       "org": "ballerina",
       "package_name": "graphql",
       "version": "0.2.0-alpha9",
-      "module_name": "graphql",
+      "module_name": "graphql.parser",
       "dependencies": [
         {
           "org": "ballerina",
@@ -562,7 +562,15 @@
           "version": "0.9.0",
           "module_name": "jballerina.java",
           "dependencies": []
-        },
+        }
+      ]
+    },
+    {
+      "org": "ballerina",
+      "package_name": "graphql",
+      "version": "0.2.0-alpha9",
+      "module_name": "graphql",
+      "dependencies": [
         {
           "org": "ballerina",
           "package_name": "graphql",
@@ -576,15 +584,7 @@
           "version": "1.1.0-alpha9",
           "module_name": "http",
           "dependencies": []
-        }
-      ]
-    },
-    {
-      "org": "ballerina",
-      "package_name": "graphql",
-      "version": "0.2.0-alpha9",
-      "module_name": "graphql.parser",
-      "dependencies": [
+        },
         {
           "org": "ballerina",
           "package_name": "jballerina.java",

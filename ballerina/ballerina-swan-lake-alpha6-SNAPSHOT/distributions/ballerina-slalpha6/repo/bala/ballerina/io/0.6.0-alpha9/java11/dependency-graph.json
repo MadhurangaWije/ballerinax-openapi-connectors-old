@@ -8,18 +8,6 @@
     },
     {
       "org": "ballerina",
-      "name": "lang.value",
-      "version": "1.0.0",
-      "dependencies": [
-        {
-          "org": "ballerina",
-          "name": "jballerina.java",
-          "version": "0.9.0"
-        }
-      ]
-    },
-    {
-      "org": "ballerina",
       "name": "io",
       "version": "0.6.0-alpha9",
       "dependencies": [
@@ -32,6 +20,18 @@
           "org": "ballerina",
           "name": "lang.value",
           "version": "1.0.0"
+        }
+      ]
+    },
+    {
+      "org": "ballerina",
+      "name": "lang.value",
+      "version": "1.0.0",
+      "dependencies": [
+        {
+          "org": "ballerina",
+          "name": "jballerina.java",
+          "version": "0.9.0"
         }
       ]
     }

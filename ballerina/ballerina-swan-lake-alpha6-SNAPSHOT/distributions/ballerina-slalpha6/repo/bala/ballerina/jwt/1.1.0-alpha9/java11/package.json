@@ -11,10 +11,10 @@
   "platform": "java11",
   "platformDependencies": [
     {
-      "path": "platform/java11/jwt-native-1.1.0-alpha9-20210428-080900-efc2571.jar",
+      "path": "platform/java11/jwt-native-1.1.0-alpha9-20210430-131900-6ead3ea.jar",
       "artifactId": "jwt",
       "groupId": "ballerina",
-      "version": "1.1.0-alpha9-20210428-080900-efc2571"
+      "version": "1.1.0-alpha9-20210430-131900-6ead3ea"
     }
   ],
   "template": false
