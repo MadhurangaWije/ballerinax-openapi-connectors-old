@@ -90,8 +90,9 @@ task validate {
 }
 
 task codegen {
-    List<String> changedFilePath = PathFinder.findChangedFilePath(project.projectDir.absolutePath, org.openapi.buildutil.util.FileType.YAML);
-    changedFilePath.each{
+    List<String> changedPackagedYamlPathList = PathFinder.getYamlPathListForUpdatedPackages(project.projectDir.absolutePath)
+
+    changedPackagedYamlPathList.each{
         path->exec{
             int lastSlashIndex = path.lastIndexOf("/");
             String directoryPath = path.substring(0,lastSlashIndex);
@@ -109,10 +110,44 @@ task codeBuild {
     }
 }
 
-//task release {
-//    buildDirectoryList.each {
-//        path->exec {
-//            commandLine 'sh', '-c', "${ballerinaDistributionPath}/bal push "
-//        }
-//    }
-//}
+task releaseConnector {
+
+    for(String path: buildDirectoryList){
+        exec {
+            commandLine 'sh', '-c', "cd ${path}"
+        }
+        exec {
+            workingDir "${path}"
+            commandLine 'sh', '-c', "${ballerinaDistributionPath}/bal push"
+        }
+    }
+}
+
+
+task updatePackageHashes {
+    PathFinder.updateChangedFilesHashes(project.projectDir.absolutePath)
+}
+
+task cleanUp {
+    buildDirectoryList.each {
+        dir->exec{
+            commandLine 'sh', '-c', "find ${dir} -name '*.bal' -type f -delete"
+        }
+    }
+    buildDirectoryList.each {
+        dir->exec{
+            commandLine 'sh', '-c', "find ${dir} -name 'target' -type d -exec rm -rf {} +"
+        }
+    }
+    buildDirectoryList.each {
+        dir->exec{
+            commandLine 'sh', '-c', "find ${dir} -name 'resources' -type d -exec rm -rf {} +"
+        }
+    }
+}
+
+
+codeBuild.dependsOn codegen
+releaseConnector.dependsOn codeBuild
+updatePackageHashes.dependsOn releaseConnector
+cleanUp.dependsOn updatePackageHashes
