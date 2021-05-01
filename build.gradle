@@ -1,0 +1,118 @@
+import org.openapi.buildutil.pathfinder.PathFinder;
+
+buildscript {
+    dependencies {
+        classpath files("libs/openapi-build-utl-1.0-SNAPSHOT.jar")
+        classpath files("libs/jaxb-api-2.3.1.jar")
+        classpath files("libs/swagger-parser-v3-2.0.25.jar")
+        classpath files("libs/swagger-parser-core-2.0.25.jar")
+        classpath files("libs/swagger-models-2.1.7.jar")
+        classpath files("libs/swagger-core-2.1.7.jar")
+        classpath files("libs/swagger-annotations-2.1.7.jar")
+        classpath files("libs/snakeyaml-1.27.jar")
+        classpath files("libs/slf4j-api-1.7.25.jar")
+        classpath files("libs/jakarta.xml.bind-api-2.3.2.jar")
+        classpath files("libs/jakarta.validation-api-2.0.2.jar")
+        classpath files("libs/jakarta.activation-api-1.2.1.jar")
+        classpath files("libs/jackson-datatype-jsr310-2.12.1.jar")
+        classpath files("libs/jackson-dataformat-yaml-2.12.1.jar")
+        classpath files("libs/jackson-databind-2.12.1.jar")
+        classpath files("libs/jackson-core-2.12.1.jar")
+        classpath files("libs/jackson-annotations-2.12.1.jar")
+        classpath files("libs/commons-lang3-3.7.jar")
+        classpath files("libs/commons-io-2.6.jar")
+        classpath files("libs/toml4j-0.7.2.jar")
+        classpath files("libs/gson-2.8.1.jar")
+    }
+}
+
+plugins {
+    id 'java'
+    id "com.github.spotbugs" version "${githubSpotbugsVersion}"
+    id "com.github.johnrengelman.shadow" version "${githubJohnrengelmanShadowVersion}"
+    id "de.undercouch.download" version "${underCouchDownloadVersion}"
+    id "net.researchgate.release" version "${researchgateReleaseVersion}"
+}
+
+apply plugin: 'jacoco'
+apply plugin: 'maven-publish'
+
+//def distributionBinPath = project.projectDir.absolutePath + "/build/target/extracted-distributions/jballerina-tools-zip/jballerina-tools-${ballerinaLangVersion}/bin"
+def ballerinaDistributionPath = project.projectDir.absolutePath + "/ballerina/ballerina-swan-lake-alpha6-SNAPSHOT/bin"
+def buildDirectoryList = []
+
+repositories {
+    mavenLocal()
+    flatDir {
+        dirs "libs"
+    }
+//    maven {
+//        url = 'https://maven.wso2.org/nexus/content/repositories/releases/'
+//    }
+//
+//    maven {
+//        url = 'https://maven.wso2.org/nexus/content/groups/wso2-public/'
+//    }
+//
+//    maven {
+//        url = 'https://repo.maven.apache.org/maven2'
+//    }
+//
+//    maven {
+//        url = 'https://maven.pkg.github.com/ballerina-platform/ballerina-lang'
+//        credentials {
+//            username ""
+//            password ""
+//        }
+//    }
+}
+
+//configurations {
+//    jbalTools
+//}
+
+dependencies {
+//    jbalTools("org.ballerinalang:jballerina-tools:${ballerinaLangVersion}") {
+//        transitive = false
+//    }
+    compile fileTree(dir: 'libs', includes: ['*.jar'])
+}
+
+//task unpackJballerinaTools(type: Copy) {
+//    configurations.jbalTools.resolvedConfiguration.resolvedArtifacts.each { artifact ->
+//        from zipTree(artifact.getFile())
+//        into new File("${buildDir}/target/extracted-distributions", "jballerina-tools-zip")
+//    }
+//}
+
+task validate {
+    PathFinder.validateFiles(project.projectDir.absolutePath)
+}
+
+task codegen {
+    List<String> changedFilePath = PathFinder.findChangedFilePath(project.projectDir.absolutePath, org.openapi.buildutil.util.FileType.YAML);
+    changedFilePath.each{
+        path->exec{
+            int lastSlashIndex = path.lastIndexOf("/");
+            String directoryPath = path.substring(0,lastSlashIndex);
+            buildDirectoryList.add(directoryPath);
+            commandLine 'sh', '-c', "${ballerinaDistributionPath}/bal openapi -i ${path} --mode client -o ${directoryPath}"
+        }
+    }
+}
+
+task codeBuild {
+    buildDirectoryList.each{
+        path->exec{
+            commandLine 'sh', '-c', "${ballerinaDistributionPath}/bal build -c ${path}"
+        }
+    }
+}
+
+//task release {
+//    buildDirectoryList.each {
+//        path->exec {
+//            commandLine 'sh', '-c', "${ballerinaDistributionPath}/bal push "
+//        }
+//    }
+//}

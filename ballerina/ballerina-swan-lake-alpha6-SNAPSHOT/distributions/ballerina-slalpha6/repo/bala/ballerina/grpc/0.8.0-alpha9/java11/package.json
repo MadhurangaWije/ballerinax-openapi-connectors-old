@@ -1,0 +1,129 @@
+{
+  "organization": "ballerina",
+  "name": "grpc",
+  "version": "0.8.0-alpha9",
+  "export": [
+    "grpc"
+  ],
+  "ballerina_version": "slalpha5",
+  "implementation_vendor": "WSO2",
+  "language_spec_version": "v2020-12-17",
+  "platform": "java11",
+  "platformDependencies": [
+    {
+      "path": "platform/java11/grpc-native-0.8.0-alpha9-20210428-085800-5eda2d0.jar",
+      "artifactId": "grpc",
+      "groupId": "ballerina",
+      "version": "0.8.0-alpha9-20210428-085800-5eda2d0"
+    },
+    {
+      "path": "platform/java11/http-native-1.1.0-alpha9-20210428-084400-3febd55.jar",
+      "artifactId": "http-native",
+      "groupId": "org.ballerinalang",
+      "version": "1.1.0-alpha9-20210428-084400-3febd55"
+    },
+    {
+      "path": "platform/java11/netty-common-4.1.45.Final.jar",
+      "artifactId": "netty-common",
+      "groupId": "io.netty",
+      "version": "4.1.45.Final"
+    },
+    {
+      "path": "platform/java11/netty-buffer-4.1.45.Final.jar",
+      "artifactId": "netty-buffer",
+      "groupId": "io.netty",
+      "version": "4.1.45.Final"
+    },
+    {
+      "path": "platform/java11/netty-transport-4.1.45.Final.jar",
+      "artifactId": "netty-transport",
+      "groupId": "io.netty",
+      "version": "4.1.45.Final"
+    },
+    {
+      "path": "platform/java11/netty-resolver-4.1.45.Final.jar",
+      "artifactId": "netty-resolver",
+      "groupId": "io.netty",
+      "version": "4.1.45.Final"
+    },
+    {
+      "path": "platform/java11/netty-handler-4.1.45.Final.jar",
+      "artifactId": "netty-handler",
+      "groupId": "io.netty",
+      "version": "4.1.45.Final"
+    },
+    {
+      "path": "platform/java11/netty-codec-http-4.1.45.Final.jar",
+      "artifactId": "netty-codec-http",
+      "groupId": "io.netty",
+      "version": "4.1.45.Final"
+    },
+    {
+      "path": "platform/java11/netty-codec-4.1.45.Final.jar",
+      "artifactId": "netty-codec",
+      "groupId": "io.netty",
+      "version": "4.1.45.Final"
+    },
+    {
+      "path": "platform/java11/netty-handler-proxy-4.1.45.Final.jar",
+      "artifactId": "netty-handler-proxy",
+      "groupId": "io.netty",
+      "version": "4.1.45.Final"
+    },
+    {
+      "path": "platform/java11/netty-codec-http2-4.1.45.Final.jar",
+      "artifactId": "netty-codec-http2",
+      "groupId": "io.netty",
+      "version": "4.1.45.Final"
+    },
+    {
+      "path": "platform/java11/commons-pool-1.5.6.wso2v1.jar",
+      "artifactId": "commons-pool",
+      "groupId": "commons-pool.wso2",
+      "version": "1.5.6.wso2v1"
+    },
+    {
+      "path": "platform/java11/snakeyaml-1.16.0.wso2v1.jar",
+      "artifactId": "snakeyaml",
+      "groupId": "org.wso2.orbit.org.yaml",
+      "version": "1.16.0.wso2v1"
+    },
+    {
+      "path": "platform/java11/bcprov-jdk15on-1.61.jar",
+      "artifactId": "bcprov-jdk15on",
+      "groupId": "org.bouncycastle",
+      "version": "1.61"
+    },
+    {
+      "path": "platform/java11/bcpkix-jdk15on-1.61.jar",
+      "artifactId": "bcpkix-jdk15on",
+      "groupId": "org.bouncycastle",
+      "version": "1.61"
+    },
+    {
+      "path": "platform/java11/netty-tcnative-boringssl-static-2.0.25.Final.jar",
+      "artifactId": "netty-tcnative-boringssl-static",
+      "groupId": "io.netty",
+      "version": "2.0.25.Final"
+    },
+    {
+      "path": "platform/java11/protobuf-java-3.9.1.jar",
+      "artifactId": "protobuf-java",
+      "groupId": "com.google.protobuf",
+      "version": "3.9.1"
+    },
+    {
+      "path": "platform/java11/proto-google-common-protos-1.17.0.jar",
+      "artifactId": "proto-google-common-protos",
+      "groupId": "com.google.api.grpc",
+      "version": "1.17.0"
+    },
+    {
+      "path": "platform/java11/handlebars-4.0.6.jar",
+      "artifactId": "handlebars",
+      "groupId": "com.github.jknack",
+      "version": "4.1.2"
+    }
+  ],
+  "template": false
+}

@@ -1,0 +1,7 @@
+{
+  "plugin_id": "email-compiler-plugin",
+  "plugin_class": "io.ballerina.stdlib.email.compiler.EmailCompilerPlugin",
+  "dependency_paths": [
+    "compiler-plugin/libs/email-compiler-plugin-1.1.0-alpha9-20210428-081200-dfdaad2.jar"
+  ]
+}

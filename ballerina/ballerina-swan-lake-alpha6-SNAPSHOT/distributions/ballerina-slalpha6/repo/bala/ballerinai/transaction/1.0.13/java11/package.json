@@ -1,0 +1,21 @@
+{
+  "organization": "ballerinai",
+  "name": "transaction",
+  "version": "1.0.13",
+  "export": [
+    "transaction"
+  ],
+  "ballerina_version": "slalpha5",
+  "implementation_vendor": "WSO2",
+  "language_spec_version": "v2020-12-17",
+  "platform": "java11",
+  "platformDependencies": [
+    {
+      "path": "platform/java11/transaction-native-1.0.13-20210428-090100-df50548.jar",
+      "artifactId": "transaction",
+      "groupId": "ballerina",
+      "version": "1.0.13-20210428-090100-df50548"
+    }
+  ],
+  "template": false
+}

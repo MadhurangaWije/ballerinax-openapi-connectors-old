@@ -1,0 +1,21 @@
+{
+  "organization": "ballerina",
+  "name": "io",
+  "version": "0.6.0-alpha9",
+  "export": [
+    "io"
+  ],
+  "ballerina_version": "slalpha5",
+  "implementation_vendor": "WSO2",
+  "language_spec_version": "v2020-12-17",
+  "platform": "java11",
+  "platformDependencies": [
+    {
+      "path": "platform/java11/io-native-0.6.0-alpha9-20210428-073400-f5fd24c.jar",
+      "artifactId": "io",
+      "groupId": "ballerina",
+      "version": "0.6.0-alpha9-20210428-073400-f5fd24c"
+    }
+  ],
+  "template": false
+}

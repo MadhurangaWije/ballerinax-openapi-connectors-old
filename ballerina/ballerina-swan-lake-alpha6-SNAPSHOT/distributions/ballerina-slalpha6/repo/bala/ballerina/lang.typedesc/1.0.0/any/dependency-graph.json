@@ -1,0 +1,19 @@
+{
+  "packages": [
+    {
+      "org": "ballerina",
+      "name": "lang.typedesc",
+      "version": "1.0.0",
+      "dependencies": []
+    }
+  ],
+  "modules": [
+    {
+      "org": "ballerina",
+      "package_name": "lang.typedesc",
+      "version": "1.0.0",
+      "module_name": "lang.typedesc",
+      "dependencies": []
+    }
+  ]
+}

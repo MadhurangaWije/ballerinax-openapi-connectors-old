@@ -1,0 +1,13 @@
+{
+  "organization": "ballerina",
+  "name": "lang.int",
+  "version": "1.1.0",
+  "export": [
+    "lang.int"
+  ],
+  "ballerina_version": "slalpha5",
+  "implementation_vendor": "WSO2",
+  "language_spec_version": "v2020-12-17",
+  "platform": "java11",
+  "template": false
+}

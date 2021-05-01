@@ -1,0 +1,19 @@
+{
+  "packages": [
+    {
+      "org": "ballerina",
+      "name": "openapi",
+      "version": "2.0.12",
+      "dependencies": []
+    }
+  ],
+  "modules": [
+    {
+      "org": "ballerina",
+      "package_name": "openapi",
+      "version": "2.0.12",
+      "module_name": "openapi",
+      "dependencies": []
+    }
+  ]
+}

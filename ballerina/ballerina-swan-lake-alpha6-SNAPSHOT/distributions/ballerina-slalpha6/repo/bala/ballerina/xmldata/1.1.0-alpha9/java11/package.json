@@ -1,0 +1,21 @@
+{
+  "organization": "ballerina",
+  "name": "xmldata",
+  "version": "1.1.0-alpha9",
+  "export": [
+    "xmldata"
+  ],
+  "ballerina_version": "slalpha5",
+  "implementation_vendor": "WSO2",
+  "language_spec_version": "v2020-12-17",
+  "platform": "java11",
+  "platformDependencies": [
+    {
+      "path": "platform/java11/xmldata-native-1.1.0-alpha9-20210428-073300-8e6e5a1.jar",
+      "artifactId": "xmldata",
+      "groupId": "ballerina",
+      "version": "1.1.0-alpha9-20210428-073300-8e6e5a1"
+    }
+  ],
+  "template": false
+}

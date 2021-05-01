@@ -1,0 +1,21 @@
+{
+  "organization": "ballerina",
+  "name": "jwt",
+  "version": "1.1.0-alpha9",
+  "export": [
+    "jwt"
+  ],
+  "ballerina_version": "slalpha5",
+  "implementation_vendor": "WSO2",
+  "language_spec_version": "v2020-12-17",
+  "platform": "java11",
+  "platformDependencies": [
+    {
+      "path": "platform/java11/jwt-native-1.1.0-alpha9-20210428-080900-efc2571.jar",
+      "artifactId": "jwt",
+      "groupId": "ballerina",
+      "version": "1.1.0-alpha9-20210428-080900-efc2571"
+    }
+  ],
+  "template": false
+}

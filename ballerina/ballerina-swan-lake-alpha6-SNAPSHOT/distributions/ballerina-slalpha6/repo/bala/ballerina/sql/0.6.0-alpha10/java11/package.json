@@ -1,0 +1,27 @@
+{
+  "organization": "ballerina",
+  "name": "sql",
+  "version": "0.6.0-alpha10",
+  "export": [
+    "sql"
+  ],
+  "ballerina_version": "slalpha5",
+  "implementation_vendor": "WSO2",
+  "language_spec_version": "v2020-12-17",
+  "platform": "java11",
+  "platformDependencies": [
+    {
+      "path": "platform/java11/sql-native-0.6.0-alpha10-20210428-091800-95fa3ae.jar",
+      "artifactId": "sql-native",
+      "groupId": "ballerina",
+      "version": "0.6.0-alpha10-20210428-091800-95fa3ae"
+    },
+    {
+      "path": "platform/java11/HikariCP-3.3.1.jar",
+      "artifactId": "HikariCP",
+      "groupId": "com.zaxxer",
+      "version": "3.3.1"
+    }
+  ],
+  "template": false
+}

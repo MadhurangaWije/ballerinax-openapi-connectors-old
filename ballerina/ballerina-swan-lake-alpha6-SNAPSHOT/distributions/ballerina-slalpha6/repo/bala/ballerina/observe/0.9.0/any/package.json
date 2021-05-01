@@ -1,0 +1,21 @@
+{
+  "organization": "ballerina",
+  "name": "observe",
+  "version": "0.9.0",
+  "export": [
+    "observe"
+  ],
+  "ballerina_version": "slalpha5",
+  "implementation_vendor": "WSO2",
+  "language_spec_version": "v2020-12-17",
+  "platform": "java11",
+  "platformDependencies": [
+    {
+      "path": "platform/java11/ballerina-observability-2.0.0-alpha9-20210428-013500-af5f5cfc.jar",
+      "artifactId": "observability",
+      "groupId": "ballerina",
+      "version": "0.9.0"
+    }
+  ],
+  "template": false
+}

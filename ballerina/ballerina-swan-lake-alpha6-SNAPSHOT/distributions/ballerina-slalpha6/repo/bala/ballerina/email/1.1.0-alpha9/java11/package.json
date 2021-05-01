@@ -1,0 +1,45 @@
+{
+  "organization": "ballerina",
+  "name": "email",
+  "version": "1.1.0-alpha9",
+  "export": [
+    "email"
+  ],
+  "ballerina_version": "slalpha5",
+  "implementation_vendor": "WSO2",
+  "language_spec_version": "v2020-12-17",
+  "platform": "java11",
+  "platformDependencies": [
+    {
+      "path": "platform/java11/javax.mail-1.6.2.jar",
+      "artifactId": "java.mail",
+      "groupId": "javax.mail",
+      "version": "1.6.2"
+    },
+    {
+      "path": "platform/java11/greenmail-1.5.11.jar",
+      "artifactId": "greenmail",
+      "groupId": "com.sun.mail",
+      "version": "1.5.11"
+    },
+    {
+      "path": "platform/java11/mimepull-1.9.11.jar",
+      "artifactId": "mimepull",
+      "groupId": "org.jvnet.mimepull",
+      "version": "1.9.11"
+    },
+    {
+      "path": "platform/java11/testng-7.4.0.jar",
+      "artifactId": "testng",
+      "groupId": "org.testng",
+      "version": "7.4.0"
+    },
+    {
+      "path": "platform/java11/email-native-1.1.0-alpha9-20210428-081200-dfdaad2.jar",
+      "artifactId": "email",
+      "groupId": "ballerina",
+      "version": "1.1.0-alpha9-20210428-081200-dfdaad2"
+    }
+  ],
+  "template": false
+}

@@ -1,0 +1,27 @@
+{
+  "organization": "ballerina",
+  "name": "task",
+  "version": "2.0.0-alpha10",
+  "export": [
+    "task"
+  ],
+  "ballerina_version": "slalpha5",
+  "implementation_vendor": "WSO2",
+  "language_spec_version": "v2020-12-17",
+  "platform": "java11",
+  "platformDependencies": [
+    {
+      "path": "platform/java11/task-native-2.0.0-alpha10-20210428-074500-ef8b668.jar",
+      "artifactId": "task",
+      "groupId": "ballerina",
+      "version": "2.0.0-alpha10-20210428-074500-ef8b668"
+    },
+    {
+      "path": "platform/java11/quartz-2.3.1.jar",
+      "artifactId": "quartz",
+      "groupId": "org.quartz-scheduler",
+      "version": "2.3.1"
+    }
+  ],
+  "template": false
+}

@@ -1,0 +1,7 @@
+{
+  "plugin_id": "ballerina-openapi",
+  "plugin_class": "org.ballerinalang.openapi.validator.OpenAPIValidatorPlugin",
+  "dependency_paths": [
+    "compiler-plugin/libs/openapi-validator-2.0.12-SNAPSHOT.jar"
+  ]
+}

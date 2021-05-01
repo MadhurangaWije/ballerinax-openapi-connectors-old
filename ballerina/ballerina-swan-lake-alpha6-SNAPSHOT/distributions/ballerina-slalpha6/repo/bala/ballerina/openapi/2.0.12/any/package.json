@@ -1,0 +1,21 @@
+{
+  "organization": "ballerina",
+  "name": "openapi",
+  "version": "2.0.12",
+  "export": [
+    "openapi"
+  ],
+  "ballerina_version": "slalpha5",
+  "implementation_vendor": "WSO2",
+  "language_spec_version": "v2020-12-17",
+  "platform": "java11",
+  "platformDependencies": [
+    {
+      "path": "platform/java11/openapi-validator-2.0.12-SNAPSHOT.jar",
+      "artifactId": "openapi",
+      "groupId": "ballerina",
+      "version": "2.0.12-SNAPSHOT"
+    }
+  ],
+  "template": false
+}

@@ -1,0 +1,235 @@
+{
+  "packages": [
+    {
+      "org": "ballerina",
+      "name": "lang.query",
+      "version": "0.0.1",
+      "dependencies": [
+        {
+          "org": "ballerina",
+          "name": "lang.table",
+          "version": "0.4.0"
+        },
+        {
+          "org": "ballerina",
+          "name": "lang.string",
+          "version": "1.1.0"
+        },
+        {
+          "org": "ballerina",
+          "name": "lang.array",
+          "version": "1.1.0"
+        },
+        {
+          "org": "ballerina",
+          "name": "lang.__internal",
+          "version": "0.1.0"
+        },
+        {
+          "org": "ballerina",
+          "name": "jballerina.java",
+          "version": "0.9.0"
+        },
+        {
+          "org": "ballerina",
+          "name": "lang.stream",
+          "version": "0.4.0"
+        },
+        {
+          "org": "ballerina",
+          "name": "lang.map",
+          "version": "1.1.0"
+        },
+        {
+          "org": "ballerina",
+          "name": "lang.xml",
+          "version": "0.8.0"
+        },
+        {
+          "org": "ballerina",
+          "name": "lang.object",
+          "version": "1.0.0"
+        }
+      ]
+    },
+    {
+      "org": "ballerina",
+      "name": "lang.table",
+      "version": "0.4.0",
+      "dependencies": [
+        {
+          "org": "ballerina",
+          "name": "jballerina.java",
+          "version": "0.9.0"
+        }
+      ]
+    },
+    {
+      "org": "ballerina",
+      "name": "lang.string",
+      "version": "1.1.0",
+      "dependencies": [
+        {
+          "org": "ballerina",
+          "name": "jballerina.java",
+          "version": "0.9.0"
+        }
+      ]
+    },
+    {
+      "org": "ballerina",
+      "name": "lang.array",
+      "version": "1.1.0",
+      "dependencies": [
+        {
+          "org": "ballerina",
+          "name": "lang.__internal",
+          "version": "0.1.0"
+        },
+        {
+          "org": "ballerina",
+          "name": "jballerina.java",
+          "version": "0.9.0"
+        }
+      ]
+    },
+    {
+      "org": "ballerina",
+      "name": "lang.__internal",
+      "version": "0.1.0",
+      "dependencies": [
+        {
+          "org": "ballerina",
+          "name": "jballerina.java",
+          "version": "0.9.0"
+        },
+        {
+          "org": "ballerina",
+          "name": "lang.object",
+          "version": "1.0.0"
+        }
+      ]
+    },
+    {
+      "org": "ballerina",
+      "name": "jballerina.java",
+      "version": "0.9.0",
+      "dependencies": []
+    },
+    {
+      "org": "ballerina",
+      "name": "lang.stream",
+      "version": "0.4.0",
+      "dependencies": [
+        {
+          "org": "ballerina",
+          "name": "lang.__internal",
+          "version": "0.1.0"
+        }
+      ]
+    },
+    {
+      "org": "ballerina",
+      "name": "lang.map",
+      "version": "1.1.0",
+      "dependencies": [
+        {
+          "org": "ballerina",
+          "name": "jballerina.java",
+          "version": "0.9.0"
+        }
+      ]
+    },
+    {
+      "org": "ballerina",
+      "name": "lang.xml",
+      "version": "0.8.0",
+      "dependencies": [
+        {
+          "org": "ballerina",
+          "name": "jballerina.java",
+          "version": "0.9.0"
+        }
+      ]
+    },
+    {
+      "org": "ballerina",
+      "name": "lang.object",
+      "version": "1.0.0",
+      "dependencies": []
+    }
+  ],
+  "modules": [
+    {
+      "org": "ballerina",
+      "package_name": "lang.query",
+      "version": "0.0.1",
+      "module_name": "lang.query",
+      "dependencies": [
+        {
+          "org": "ballerina",
+          "package_name": "lang.__internal",
+          "version": "0.1.0",
+          "module_name": "lang.__internal",
+          "dependencies": []
+        },
+        {
+          "org": "ballerina",
+          "package_name": "jballerina.java",
+          "version": "0.9.0",
+          "module_name": "jballerina.java",
+          "dependencies": []
+        },
+        {
+          "org": "ballerina",
+          "package_name": "lang.xml",
+          "version": "0.8.0",
+          "module_name": "lang.xml",
+          "dependencies": []
+        },
+        {
+          "org": "ballerina",
+          "package_name": "lang.string",
+          "version": "1.1.0",
+          "module_name": "lang.string",
+          "dependencies": []
+        },
+        {
+          "org": "ballerina",
+          "package_name": "lang.stream",
+          "version": "0.4.0",
+          "module_name": "lang.stream",
+          "dependencies": []
+        },
+        {
+          "org": "ballerina",
+          "package_name": "lang.object",
+          "version": "1.0.0",
+          "module_name": "lang.object",
+          "dependencies": []
+        },
+        {
+          "org": "ballerina",
+          "package_name": "lang.table",
+          "version": "0.4.0",
+          "module_name": "lang.table",
+          "dependencies": []
+        },
+        {
+          "org": "ballerina",
+          "package_name": "lang.array",
+          "version": "1.1.0",
+          "module_name": "lang.array",
+          "dependencies": []
+        },
+        {
+          "org": "ballerina",
+          "package_name": "lang.map",
+          "version": "1.1.0",
+          "module_name": "lang.map",
+          "dependencies": []
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "organization": "ballerina",
+  "name": "jballerina.java",
+  "version": "0.9.0",
+  "export": [
+    "jballerina.java"
+  ],
+  "ballerina_version": "slalpha5",
+  "implementation_vendor": "WSO2",
+  "language_spec_version": "v2020-12-17",
+  "platform": "any",
+  "template": false
+}
