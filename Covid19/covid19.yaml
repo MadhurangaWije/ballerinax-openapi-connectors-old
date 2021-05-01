@@ -5,7 +5,7 @@ info:
   description: Here you can find documentation for COVID-19 REST API.
   x-display:
     label: "covid-19"
-    icon: "/path/to/icon"
+    icoPathn: "/path/to/icon"
 servers:
   - description: Covid-19 statistic serverless API
     url: https://api-cov19.now.sh/
@@ -155,4 +155,3 @@ components:
       properties:
         name:
           type: string
-          
