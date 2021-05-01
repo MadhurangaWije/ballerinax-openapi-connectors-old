@@ -85,12 +85,14 @@ dependencies {
 //    }
 //}
 
+List<String> exceptFileList = [project.projectDir.absolutePath+"/.github/workflows/ci.yml"]
+
 task validate {
-    PathFinder.validateFiles(project.projectDir.absolutePath)
+    PathFinder.validateFiles(project.projectDir.absolutePath, exceptFileList)
 }
 
 task codegen {
-    List<String> changedPackagedYamlPathList = PathFinder.getYamlPathListForUpdatedPackages(project.projectDir.absolutePath)
+    List<String> changedPackagedYamlPathList = PathFinder.getYamlPathListForUpdatedPackages(project.projectDir.absolutePath, exceptFileList)
 
     changedPackagedYamlPathList.each{
         path->exec{
@@ -125,7 +127,7 @@ task releaseConnector {
 
 
 task updatePackageHashes {
-    PathFinder.updateChangedFilesHashes(project.projectDir.absolutePath)
+    PathFinder.updateChangedFilesHashes(project.projectDir.absolutePath, exceptFileList)
 }
 
 task cleanUp {
