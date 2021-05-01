@@ -85,7 +85,7 @@ dependencies {
 //    }
 //}
 
-List<String> exceptFileList = [project.projectDir.absolutePath+"/.github/workflows/ci.yml"]
+List<String> exceptFileList = [project.projectDir.absolutePath+"/.github/workflows/release.yml", project.projectDir.absolutePath+"/.github/workflows/ci.yml"]
 
 task validate {
     PathFinder.validateFiles(project.projectDir.absolutePath, exceptFileList)
@@ -113,21 +113,30 @@ task codeBuild {
 }
 
 task releaseConnector {
-
-    for(String path: buildDirectoryList){
-        exec {
-            commandLine 'sh', '-c', "cd ${path}"
-        }
-        exec {
-            workingDir "${path}"
-            commandLine 'sh', '-c', "${ballerinaDistributionPath}/bal push"
+    if (project.hasProperty("release") ) {
+        boolean release = new Boolean(project.property("release").toString())
+        if(release){
+            for (String path : buildDirectoryList) {
+                exec {
+                    commandLine 'sh', '-c', "cd ${path}"
+                }
+                exec {
+                    workingDir "${path}"
+                    commandLine 'sh', '-c', "${ballerinaDistributionPath}/bal push"
+                }
+            }
         }
     }
 }
 
 
 task updatePackageHashes {
-    PathFinder.updateChangedFilesHashes(project.projectDir.absolutePath, exceptFileList)
+    if (project.hasProperty("release")) {
+        boolean release = new Boolean(project.property("release").toString())
+        if (release) {
+            PathFinder.updateChangedFilesHashes(project.projectDir.absolutePath, exceptFileList)
+        }
+    }
 }
 
 task cleanUp {
