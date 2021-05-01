@@ -170,7 +170,5 @@ task releaseConnector {
 //    }
 //}
 
-codeBuild.dependsOn codegen
-releaseConnector.dependsOn codeBuild
-updatePackageHashes.dependsOn releaseConnector
+
 
