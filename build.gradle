@@ -104,9 +104,7 @@ task codegen {
             commandLine 'sh', '-c', "${ballerinaDistributionPath}/bal openapi -i ${path} --mode client -o ${directoryPath}"
         }
     }
-}
 
-task codeBuild {
     println "Code building..."
     buildDirectoryList.each{
         path->exec{
@@ -114,6 +112,15 @@ task codeBuild {
         }
     }
 }
+
+//task codeBuild {
+//    println "Code building..."
+//    buildDirectoryList.each{
+//        path->exec{
+//            commandLine 'sh', '-c', "${ballerinaDistributionPath}/bal build -c ${path}"
+//        }
+//    }
+//}
 
 task releaseConnector {
     if (project.hasProperty("release") ) {
@@ -129,40 +136,41 @@ task releaseConnector {
                     commandLine 'sh', '-c', "${ballerinaDistributionPath}/bal push"
                 }
             }
-        }
-    }
-}
-
-task updatePackageHashes {
-    if (project.hasProperty("release")) {
-        boolean release = new Boolean(project.property("release").toString())
-        if (release) {
             println "Update package hashes"
             PathFinder.updateChangedFilesHashes(project.projectDir.absolutePath, exceptFileList)
         }
     }
 }
 
-task cleanUp {
-    println "Cleaning..."
-    buildDirectoryList.each {
-        dir->exec{
-            commandLine 'sh', '-c', "find ${dir} -name '*.bal' -type f -delete"
-        }
-    }
-    buildDirectoryList.each {
-        dir->exec{
-            commandLine 'sh', '-c', "find ${dir} -name 'target' -type d -exec rm -rf {} +"
-        }
-    }
-    buildDirectoryList.each {
-        dir->exec{
-            commandLine 'sh', '-c', "find ${dir} -name 'resources' -type d -exec rm -rf {} +"
-        }
-    }
-}
+//task updatePackageHashes {
+//    if (project.hasProperty("release")) {
+//        boolean release = new Boolean(project.property("release").toString())
+//        if (release) {
+//
+//        }
+//    }
+//}
+
+//task cleanUp {
+//    println "Cleaning..."
+//    buildDirectoryList.each {
+//        dir->exec{
+//            commandLine 'sh', '-c', "find ${dir} -name '*.bal' -type f -delete"
+//        }
+//    }
+//    buildDirectoryList.each {
+//        dir->exec{
+//            commandLine 'sh', '-c', "find ${dir} -name 'target' -type d -exec rm -rf {} +"
+//        }
+//    }
+//    buildDirectoryList.each {
+//        dir->exec{
+//            commandLine 'sh', '-c', "find ${dir} -name 'resources' -type d -exec rm -rf {} +"
+//        }
+//    }
+//}
 
 codeBuild.dependsOn codegen
 releaseConnector.dependsOn codeBuild
 updatePackageHashes.dependsOn releaseConnector
-cleanUp.dependsOn updatePackageHashes
+
