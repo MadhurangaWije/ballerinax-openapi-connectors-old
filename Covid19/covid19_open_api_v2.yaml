@@ -1,0 +1,149 @@
+openapi: 3.0.0
+info:
+  version: 1.0.0
+  title: CORONAVIRUS COVID19 API
+  description: Here you can find documentation for COVID-19 REST API.
+  x-display:
+    label: "covid-19"
+    iconPath: "/path/to/icon"
+servers:
+  - description: Covid-19 statistic serverless API
+    url: https://api.covid19api.com
+paths:
+  /summary:
+    get:
+      tags: ["Summary"]
+      description: Returns summarization of information about all countries
+      operationId: getSummary
+      x-display:
+        label: "Get Covid-19 info worldwide"
+      responses:
+        '200':
+          description: A list of countries with all informtion included.
+          content:
+            application/json:
+              schema:
+                type: object
+                "$ref": "#/components/schemas/Summary"
+  /countries:
+    get:
+      tags: ["Metadata"]
+      description: Returns all the available countries and provinces, as well as the country slug for per country requests.
+      operationId: getCountries
+      x-display:
+        label: "Get list of countries"
+      responses:
+        '200':
+          description: A list of countries with all informtion included.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Country"
+  /dayone/country/{countrySlug}/status/confirmed:
+    get:
+      tags: ["Day one"]
+      description: Returns all cases by case type for a country from the first recorded case. 
+        Country must be the Slug from country list. Cases must be one of confirmed, recovered, deaths.
+      operationId: getStatusByCountry
+      x-display:
+        label: "Get Covid data by country name"
+      parameters:
+        - name: countrySlug
+          in: path
+          description: Slug of the selected country
+          required: true
+          schema:
+            type: string
+          x-display:
+            label: "Country Slug"
+      responses:
+        '200':
+          description: Given country's confirmed covid data from day one.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/CountryDayOne"
+tags:
+- name: Summary
+  description: "Provide summary of Covid19 situation worldwide"
+- name: Metadata
+  description: "Provide metadata that can be used in other operations"
+components:
+  schemas:
+    Global:
+      type: object
+      properties:
+        NewConfirmed:
+          type: integer
+        TotalConfirmed:
+          type: integer
+        NewDeaths:
+          type: integer
+        TotalDeaths:
+          type: integer
+        NewRecovered:
+          type: integer
+        TotalRecovered:
+          type: integer
+    Country:
+      type: object
+      properties:
+        Country:
+          type: string
+        CountryCode:
+          type: string
+        Slug:
+          type: string
+        ISO2:
+          type: string
+        NewConfirmed:
+          type: integer
+        TotalConfirmed:
+          type: integer
+        NewDeaths:
+          type: integer
+        TotalDeaths:
+          type: integer
+        NewRecovered:
+          type: integer
+        TotalRecovered:
+          type: integer
+        Date:
+          type: string
+    CountryDayOne:
+      type: object
+      properties:
+        Country:
+          type: string
+        CountryCode:
+          type: string
+        Lat:
+          type: string
+        Lon:
+          type: string
+        Cases:
+          type: integer
+        Status:
+          type: string
+        Date:
+          type: string
+    Summary:
+      type: object
+      properties:
+        Global:
+          "$ref": "#/components/schemas/Global"
+        Countries:
+          type: array
+          items:
+            type: object
+            "$ref": "#/components/schemas/Country"
+            
+    Error:
+      type: object
+      properties:
+        name:
+          type: string
