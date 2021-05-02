@@ -113,15 +113,6 @@ task codegen {
     }
 }
 
-//task codeBuild {
-//    println "Code building..."
-//    buildDirectoryList.each{
-//        path->exec{
-//            commandLine 'sh', '-c', "${ballerinaDistributionPath}/bal build -c ${path}"
-//        }
-//    }
-//}
-
 task releaseConnector {
     if (project.hasProperty("release") ) {
         boolean release = new Boolean(project.property("release").toString())
@@ -141,34 +132,3 @@ task releaseConnector {
         }
     }
 }
-
-//task updatePackageHashes {
-//    if (project.hasProperty("release")) {
-//        boolean release = new Boolean(project.property("release").toString())
-//        if (release) {
-//
-//        }
-//    }
-//}
-
-//task cleanUp {
-//    println "Cleaning..."
-//    buildDirectoryList.each {
-//        dir->exec{
-//            commandLine 'sh', '-c', "find ${dir} -name '*.bal' -type f -delete"
-//        }
-//    }
-//    buildDirectoryList.each {
-//        dir->exec{
-//            commandLine 'sh', '-c', "find ${dir} -name 'target' -type d -exec rm -rf {} +"
-//        }
-//    }
-//    buildDirectoryList.each {
-//        dir->exec{
-//            commandLine 'sh', '-c', "find ${dir} -name 'resources' -type d -exec rm -rf {} +"
-//        }
-//    }
-//}
-
-
-
