@@ -7,7 +7,7 @@ info:
     label: "covid-19"
     iconPath: "/path/to/icon"
 servers:
-  - description: Covid-19 statistic serverless API
+  - description: Covid-19 statistic serverless API 2
     url: https://api.covid19api.com
 paths:
   /summary:
