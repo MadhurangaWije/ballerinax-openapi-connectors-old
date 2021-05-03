@@ -98,7 +98,6 @@ task codegen {
 
     changedPackagedYamlPathList.each{
         path->exec{
-            path = "/home/runner/work/ballerinax-openapi-connectors/ballerinax-openapi-connectors/Covid19/covid19_open_api_v2.yaml";
             int lastSlashIndex = path.lastIndexOf("/");
             String directoryPath = path.substring(0,lastSlashIndex);
             String dirPathInsideTheProjectDir = directoryPath.substring(path.lastIndexOf("ballerinax-openapi-connectors/")).split("ballerinax-openapi-connectors/")[1];
