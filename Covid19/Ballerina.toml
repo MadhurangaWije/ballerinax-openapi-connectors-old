@@ -1,7 +1,0 @@
-[package]
-org = "kanishka"
-name = "Covid19"
-version = "0.1.6"
-
-[build-options]
-observabilityIncluded = true
