@@ -99,9 +99,14 @@ task codegen {
     changedPackagedYamlPathList.each{
         path->exec{
             int lastSlashIndex = path.lastIndexOf("/");
+            String filePathInsideTheProjectDir = path.split("ballerinax-openapi-connectors/")[1];
+            String filePathRelativeToProjectDir = "./"+filePathInsideTheProjectDir;
             String directoryPath = path.substring(0,lastSlashIndex);
-            buildDirectoryList.add(directoryPath);
-            commandLine 'sh', '-c', "${ballerinaDistributionPath}/bal openapi -i ${path} --mode client -o ${directoryPath}"
+            String dirPathInsideTheProjectDir = directoryPath.split("ballerinax-openapi-connectors/")[1];
+            String dirPathRelativeToProjectDir = "./"+dirPathInsideTheProjectDir;
+            println filePathRelativeToProjectDir
+            buildDirectoryList.add(dirPathRelativeToProjectDir);
+            commandLine 'sh', '-c', "${ballerinaDistributionPath}/bal openapi -i ${filePathRelativeToProjectDir} --mode client -o ${dirPathRelativeToProjectDir}"
         }
     }
 
