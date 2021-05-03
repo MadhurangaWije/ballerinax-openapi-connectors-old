@@ -37,7 +37,6 @@ plugins {
 apply plugin: 'jacoco'
 apply plugin: 'maven-publish'
 
-//def distributionBinPath = project.projectDir.absolutePath + "/build/target/extracted-distributions/jballerina-tools-zip/jballerina-tools-${ballerinaLangVersion}/bin"
 def ballerinaDistributionPath = project.projectDir.absolutePath + "/ballerina/ballerina-swan-lake-alpha6-SNAPSHOT/bin"
 def buildDirectoryList = []
 
@@ -46,44 +45,12 @@ repositories {
     flatDir {
         dirs "libs"
     }
-//    maven {
-//        url = 'https://maven.wso2.org/nexus/content/repositories/releases/'
-//    }
-//
-//    maven {
-//        url = 'https://maven.wso2.org/nexus/content/groups/wso2-public/'
-//    }
-//
-//    maven {
-//        url = 'https://repo.maven.apache.org/maven2'
-//    }
-//
-//    maven {
-//        url = 'https://maven.pkg.github.com/ballerina-platform/ballerina-lang'
-//        credentials {
-//            username ""
-//            password ""
-//        }
-//    }
 }
 
-//configurations {
-//    jbalTools
-//}
-
 dependencies {
-//    jbalTools("org.ballerinalang:jballerina-tools:${ballerinaLangVersion}") {
-//        transitive = false
-//    }
     compile fileTree(dir: 'libs', includes: ['*.jar'])
 }
 
-//task unpackJballerinaTools(type: Copy) {
-//    configurations.jbalTools.resolvedConfiguration.resolvedArtifacts.each { artifact ->
-//        from zipTree(artifact.getFile())
-//        into new File("${buildDir}/target/extracted-distributions", "jballerina-tools-zip")
-//    }
-//}
 
 List<String> exceptFileList = [project.projectDir.absolutePath+"/.github/workflows/release.yml", project.projectDir.absolutePath+"/.github/workflows/ci.yml"]
 
@@ -102,15 +69,9 @@ task codegen {
             String directoryPath = path.substring(0,lastSlashIndex);
             String dirPathInsideTheProjectDir = directoryPath.substring(path.lastIndexOf("ballerinax-openapi-connectors/")).split("ballerinax-openapi-connectors/")[1];
             String dirPathRelativeToProjectDir = "./"+dirPathInsideTheProjectDir;
-            println dirPathRelativeToProjectDir
-
-            println path
             String filePathInsideTheProjectDir = path.substring(path.lastIndexOf("ballerinax-openapi-connectors/")).split("ballerinax-openapi-connectors/")[1];
-            println filePathInsideTheProjectDir
             String filePathRelativeToProjectDir = "./"+filePathInsideTheProjectDir;
-            println filePathRelativeToProjectDir
             buildDirectoryList.add(dirPathRelativeToProjectDir);
-//            commandLine 'sh', '-c', "${ballerinaDistributionPath}/bal version"
             commandLine 'sh', '-c', "${ballerinaDistributionPath}/bal openapi -i ${filePathRelativeToProjectDir} --mode client -o ${dirPathRelativeToProjectDir}"
         }
     }
