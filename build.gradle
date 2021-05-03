@@ -98,45 +98,48 @@ task codegen {
 
     changedPackagedYamlPathList.each{
         path->exec{
+            path = "/home/runner/work/ballerinax-openapi-connectors/ballerinax-openapi-connectors/Covid19/covid19_open_api_v2.yaml";
             int lastSlashIndex = path.lastIndexOf("/");
             String directoryPath = path.substring(0,lastSlashIndex);
-            String dirPathInsideTheProjectDir = directoryPath.split("ballerinax-openapi-connectors/")[1];
+            String dirPathInsideTheProjectDir = directoryPath.substring(path.lastIndexOf("ballerinax-openapi-connectors/")).split("ballerinax-openapi-connectors/")[1];
             String dirPathRelativeToProjectDir = "./"+dirPathInsideTheProjectDir;
+            println dirPathRelativeToProjectDir
 
             println path
-            String filePathInsideTheProjectDir = path.split("ballerinax-openapi-connectors/")[1];
+            String filePathInsideTheProjectDir = path.substring(path.lastIndexOf("ballerinax-openapi-connectors/")).split("ballerinax-openapi-connectors/")[1];
             println filePathInsideTheProjectDir
             String filePathRelativeToProjectDir = "./"+filePathInsideTheProjectDir;
             println filePathRelativeToProjectDir
             buildDirectoryList.add(dirPathRelativeToProjectDir);
-            commandLine 'sh', '-c', "${ballerinaDistributionPath}/bal openapi -i ${filePathRelativeToProjectDir} --mode client -o ${dirPathRelativeToProjectDir}"
+            commandLine 'sh', '-c', "${ballerinaDistributionPath}/bal version"
+//            commandLine 'sh', '-c', "${ballerinaDistributionPath}/bal openapi -i ${filePathRelativeToProjectDir} --mode client -o ${dirPathRelativeToProjectDir}"
         }
     }
 
-    println "Code building..."
-    buildDirectoryList.each{
-        path->exec{
-            commandLine 'sh', '-c', "${ballerinaDistributionPath}/bal build -c ${path}"
-        }
-    }
+//    println "Code building..."
+//    buildDirectoryList.each{
+//        path->exec{
+//            commandLine 'sh', '-c', "${ballerinaDistributionPath}/bal build -c ${path}"
+//        }
+//    }
 }
 
-task releaseConnector {
-    if (project.hasProperty("release") ) {
-        boolean release = new Boolean(project.property("release").toString())
-        if(release){
-            println "Pushing to Ballerina central..."
-            for (String path : buildDirectoryList) {
-                exec {
-                    commandLine 'sh', '-c', "cd ${path}"
-                }
-                exec {
-                    workingDir "${path}"
-                    commandLine 'sh', '-c', "${ballerinaDistributionPath}/bal push"
-                }
-            }
-            println "Update package hashes"
-            PathFinder.updateChangedFilesHashes(project.projectDir.absolutePath, exceptFileList)
-        }
-    }
-}
+//task releaseConnector {
+//    if (project.hasProperty("release") ) {
+//        boolean release = new Boolean(project.property("release").toString())
+//        if(release){
+//            println "Pushing to Ballerina central..."
+//            for (String path : buildDirectoryList) {
+//                exec {
+//                    commandLine 'sh', '-c', "cd ${path}"
+//                }
+//                exec {
+//                    workingDir "${path}"
+//                    commandLine 'sh', '-c', "${ballerinaDistributionPath}/bal push"
+//                }
+//            }
+//            println "Update package hashes"
+//            PathFinder.updateChangedFilesHashes(project.projectDir.absolutePath, exceptFileList)
+//        }
+//    }
+//}
