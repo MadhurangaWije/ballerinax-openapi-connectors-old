@@ -1,0 +1,7 @@
+[package]
+org = "kanishka"
+name = "uber2"
+version = "0.1.7"
+
+[build-options]
+observabilityIncluded = true

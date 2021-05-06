@@ -1,0 +1,7 @@
+[package]
+org = "kanishka"
+name = "openweathermap"
+version = "2.1.8"
+
+[build-options]
+observabilityIncluded = true

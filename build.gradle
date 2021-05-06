@@ -1,28 +1,11 @@
-import org.openapi.buildutil.pathfinder.PathFinder;
+//import org.openapi.buildutil.pathfinder.PathFinder;
+import org.ballerinax.openapi.validator.Utils
+import org.ballerinax.openapi.validator.Validator;
+
 
 buildscript {
     dependencies {
-        classpath files("libs/openapi-build-utl-1.0-SNAPSHOT.jar")
-        classpath files("libs/jaxb-api-2.3.1.jar")
-        classpath files("libs/swagger-parser-v3-2.0.25.jar")
-        classpath files("libs/swagger-parser-core-2.0.25.jar")
-        classpath files("libs/swagger-models-2.1.7.jar")
-        classpath files("libs/swagger-core-2.1.7.jar")
-        classpath files("libs/swagger-annotations-2.1.7.jar")
-        classpath files("libs/snakeyaml-1.27.jar")
-        classpath files("libs/slf4j-api-1.7.25.jar")
-        classpath files("libs/jakarta.xml.bind-api-2.3.2.jar")
-        classpath files("libs/jakarta.validation-api-2.0.2.jar")
-        classpath files("libs/jakarta.activation-api-1.2.1.jar")
-        classpath files("libs/jackson-datatype-jsr310-2.12.1.jar")
-        classpath files("libs/jackson-dataformat-yaml-2.12.1.jar")
-        classpath files("libs/jackson-databind-2.12.1.jar")
-        classpath files("libs/jackson-core-2.12.1.jar")
-        classpath files("libs/jackson-annotations-2.12.1.jar")
-        classpath files("libs/commons-lang3-3.7.jar")
-        classpath files("libs/commons-io-2.6.jar")
-        classpath files("libs/toml4j-0.7.2.jar")
-        classpath files("libs/gson-2.8.1.jar")
+        classpath files("libs/ballerinax-openapi-validator-1.0-SNAPSHOT-all.jar")
     }
 }
 
@@ -37,8 +20,9 @@ plugins {
 apply plugin: 'jacoco'
 apply plugin: 'maven-publish'
 
-def ballerinaDistributionPath = project.projectDir.absolutePath + "/ballerina/ballerina-swan-lake-alpha6-SNAPSHOT/bin"
+def ballerinaDistributionPath = System.getenv("BALLERINA_HOME")
 def buildDirectoryList = []
+List<String> updatedBallerinaPackages = [];
 
 repositories {
     mavenLocal()
@@ -52,34 +36,54 @@ dependencies {
 }
 
 
-List<String> exceptFileList = [project.projectDir.absolutePath+"/.github/workflows/release.yml", project.projectDir.absolutePath+"/.github/workflows/ci.yml"]
-
 task validate {
     println "File validating..."
-    PathFinder.validateFiles(project.projectDir.absolutePath, exceptFileList)
+    Utils.loadOpenAPIProperties(project.projectDir.absolutePath)
+    updatedBallerinaPackages = Utils.findUpdatedBallerinaPackages(project.projectDir.absolutePath);
+    println updatedBallerinaPackages
+    for (String ballerinaPackage : updatedBallerinaPackages) {
+        final List<String> openAPIs = Utils.findOpenAPIs(ballerinaPackage);
+        for (String openAPI : openAPIs) {
+            Validator.validateOpenAPI(openAPI);
+        }
+    }
+}
+
+task cleanup {
+    println "Cleaning up generated code..."
+    updatedBallerinaPackages.each {
+        dir->exec{
+            commandLine 'sh', '-c', "find ${dir} -name '*.bal' -type f -delete"
+        }
+    }
+    buildDirectoryList.each {
+        dir->exec{
+            commandLine 'sh', '-c', "find ${dir} -name 'target' -type d -exec rm -rf {} +"
+        }
+    }
+    buildDirectoryList.each {
+        dir->exec{
+            commandLine 'sh', '-c', "find ${dir} -name 'resources' -type d -exec rm -rf {} +"
+        }
+    }
 }
 
 task codegen {
     println "Code generation..."
-    List<String> changedPackagedYamlPathList = PathFinder.getYamlPathListForUpdatedPackages(project.projectDir.absolutePath, exceptFileList)
 
-    changedPackagedYamlPathList.each{
+    updatedBallerinaPackages.each {
         path->exec{
-            int lastSlashIndex = path.lastIndexOf("/");
-            String directoryPath = path.substring(0,lastSlashIndex);
-            String dirPathInsideTheProjectDir = directoryPath.substring(path.lastIndexOf("ballerinax-openapi-connectors/")).split("ballerinax-openapi-connectors/")[1];
-            String dirPathRelativeToProjectDir = "./"+dirPathInsideTheProjectDir;
-            String filePathInsideTheProjectDir = path.substring(path.lastIndexOf("ballerinax-openapi-connectors/")).split("ballerinax-openapi-connectors/")[1];
-            String filePathRelativeToProjectDir = "./"+filePathInsideTheProjectDir;
-            buildDirectoryList.add(dirPathRelativeToProjectDir);
-            commandLine 'sh', '-c', "${ballerinaDistributionPath}/bal openapi -i ${filePathRelativeToProjectDir} --mode client -o ${dirPathRelativeToProjectDir}"
+            String updatedYamlFile = Utils.findUpdatedYamlFile(path);
+            if (!updatedYamlFile.isEmpty()){
+                commandLine 'sh', '-c', "${ballerinaDistributionPath}/bin/bal openapi -i ${updatedYamlFile} --mode client -o ${path}"
+            }
         }
     }
 
     println "Code building..."
-    buildDirectoryList.each{
+    updatedBallerinaPackages.each{
         path->exec{
-            commandLine 'sh', '-c', "${ballerinaDistributionPath}/bal build -c ${path}"
+            commandLine 'sh', '-c', "${ballerinaDistributionPath}/bin/bal build -c ${path}"
         }
     }
 }
@@ -89,17 +93,17 @@ task releaseConnector {
         boolean release = new Boolean(project.property("release").toString())
         if(release){
             println "Pushing to Ballerina central..."
-            for (String path : buildDirectoryList) {
+            for (String path : updatedBallerinaPackages) {
                 exec {
                     commandLine 'sh', '-c', "cd ${path}"
                 }
                 exec {
                     workingDir "${path}"
-                    commandLine 'sh', '-c', "${ballerinaDistributionPath}/bal push"
+                    commandLine 'sh', '-c', "${ballerinaDistributionPath}/bin/bal push"
                 }
             }
             println "Update package hashes"
-            PathFinder.updateChangedFilesHashes(project.projectDir.absolutePath, exceptFileList)
+            Utils.updateChangedFilesHashes(project.projectDir.absolutePath, updatedBallerinaPackages)
         }
     }
 }
