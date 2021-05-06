@@ -12,6 +12,9 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
+      - name: Set up Ballerina
+        uses: MadhurangaWije/ballerina-action@master
+
       - name: Build with Gradle
         env:
           BALLERINA_CENTRAL_ACCESS_TOKEN: ${{ secrets.BALLERINA_CENTRAL_ACCESS_TOKEN }}
@@ -45,26 +48,4 @@ jobs:
           # Optional: Prevents the shell from expanding filenames. Details: https://www.gnu.org/software/bash/manual/html_node/Filename-Expansion.html
           disable_globbing: true
 
-#      - name: Create Pull Request
-#        id: cpr
-#        uses: peter-evans/create-pull-request@v3
-#        with:
-#          token: ${{ secrets.PAT }}
-#          commit-message: Update report
-#          committer: GitHub <noreply@github.com>
-#          author: ${{ github.actor }} <${{ github.actor }}@users.noreply.github.com>
-#          signoff: false
-#          branch: master
-#          delete-branch: true
-#          title: 'Updating Package Hashes'
-#          body: |
-#            Update package hashes
-#            - This is an Auto-generated Pull Request by [create-pull-request][1]
-#
-#            [1]: https://github.com/peter-evans/create-pull-request
-#          draft: false
-#
-#      - name: Check outputs
-#        run: |
-#          echo "Pull Request Number - ${{ steps.cpr.outputs.pull-request-number }}"
-#          echo "Pull Request URL - ${{ steps.cpr.outputs.pull-request-url }}"
+
