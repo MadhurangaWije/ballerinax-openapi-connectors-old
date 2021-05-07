@@ -76,7 +76,7 @@ task codegen {
         path->exec{
             String updatedYamlFile = Utils.findUpdatedYamlFile(path);
             if (!updatedYamlFile.isEmpty()){
-                commandLine 'sh', '-c', "${ballerinaDistributionPath}/bal openapi -i ${updatedYamlFile} --mode client -o ${path}"
+                commandLine 'sh', '-c', "${ballerinaDistributionPath}bin/bal openapi -i ${updatedYamlFile} --mode client -o ${path}"
             }
         }
     }
@@ -84,7 +84,7 @@ task codegen {
     println "Code building..."
     updatedBallerinaPackages.each{
         path->exec{
-            commandLine 'sh', '-c', "${ballerinaDistributionPath}/bal build -c ${path}"
+            commandLine 'sh', '-c', "${ballerinaDistributionPath}bin/bal build -c ${path}"
         }
     }
 }
@@ -100,7 +100,7 @@ task releaseConnector {
                 }
                 exec {
                     workingDir "${path}"
-                    commandLine 'sh', '-c', "${ballerinaDistributionPath}/bal push"
+                    commandLine 'sh', '-c', "${ballerinaDistributionPath}bin/bal push"
                 }
             }
             println "Update package hashes"

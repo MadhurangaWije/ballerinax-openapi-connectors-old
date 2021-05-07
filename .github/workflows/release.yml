@@ -8,7 +8,7 @@ on:
 jobs:
   container:
     runs-on: ubuntu-latest
-    container: kanishkaw/sl-alpha5-openapi-snapshot
+    container: kanishkaw/openapi-dist
     steps:
       - uses: actions/checkout@v2
       - run: |
