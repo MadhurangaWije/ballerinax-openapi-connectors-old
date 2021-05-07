@@ -4,48 +4,63 @@ name: Release
 on:
   push:
     branches: [ master ]
-
+    
 jobs:
-  build:
+  container:
     runs-on: ubuntu-latest
-
+    container: kanishkaw/sl-alpha5-openapi-snapshot
     steps:
       - uses: actions/checkout@v2
-
-      - name: Set up Ballerina
-        uses: MadhurangaWije/ballerina-action@master
-
+      - run: |
+          ls -al  
       - name: Build with Gradle
         env:
           BALLERINA_CENTRAL_ACCESS_TOKEN: ${{ secrets.BALLERINA_CENTRAL_ACCESS_TOKEN }}
           JAVA_OPTS: -DBALLERINA_DEV_COMPILE_BALLERINA_ORG=true
         run: |
-           ./gradlew build -Prelease=true
+           ./gradlew build -Prelease=false    
 
-      - uses: stefanzweifel/git-auto-commit-action@v4
-        with:
-          commit_message: Apply automatic changes
-          commit_options: '--no-verify --signoff'
+# jobs:
+#   build:
+#     runs-on: ubuntu-latest
 
-          # Optional glob pattern of files which should be added to the commit
-          # Defaults to all (.)
-          # See the `pathspec`-documentation for git
-          # - https://git-scm.com/docs/git-add#Documentation/git-add.txt-ltpathspecgt82308203
-          # - https://git-scm.com/docs/gitglossary#Documentation/gitglossary.txt-aiddefpathspecapathspec
-          file_pattern: openapi.properties
-          repository: .
+#     steps:
+#       - uses: actions/checkout@v2
 
-          # Optional options appended to `git-push`
-          # See git-push documentation for details: https://git-scm.com/docs/git-push#_options
-          push_options: '--force'
+#       - name: Set up Ballerina
+#         uses: MadhurangaWije/ballerina-action@master
 
-          # Optional: Disable dirty check and always try to create a commit and push
-          skip_dirty_check: true
+#       - name: Build with Gradle
+#         env:
+#           BALLERINA_CENTRAL_ACCESS_TOKEN: ${{ secrets.BALLERINA_CENTRAL_ACCESS_TOKEN }}
+#           JAVA_OPTS: -DBALLERINA_DEV_COMPILE_BALLERINA_ORG=true
+#         run: |
+#            ./gradlew build -Prelease=true
 
-          # Optional: Skip internal call to `git fetch`
-          skip_fetch: true
+#       - uses: stefanzweifel/git-auto-commit-action@v4
+#         with:
+#           commit_message: Apply automatic changes
+#           commit_options: '--no-verify --signoff'
 
-          # Optional: Prevents the shell from expanding filenames. Details: https://www.gnu.org/software/bash/manual/html_node/Filename-Expansion.html
-          disable_globbing: true
+#           # Optional glob pattern of files which should be added to the commit
+#           # Defaults to all (.)
+#           # See the `pathspec`-documentation for git
+#           # - https://git-scm.com/docs/git-add#Documentation/git-add.txt-ltpathspecgt82308203
+#           # - https://git-scm.com/docs/gitglossary#Documentation/gitglossary.txt-aiddefpathspecapathspec
+#           file_pattern: openapi.properties
+#           repository: .
+
+#           # Optional options appended to `git-push`
+#           # See git-push documentation for details: https://git-scm.com/docs/git-push#_options
+#           push_options: '--force'
+
+#           # Optional: Disable dirty check and always try to create a commit and push
+#           skip_dirty_check: true
+
+#           # Optional: Skip internal call to `git fetch`
+#           skip_fetch: true
+
+#           # Optional: Prevents the shell from expanding filenames. Details: https://www.gnu.org/software/bash/manual/html_node/Filename-Expansion.html
+#           disable_globbing: true
 
 

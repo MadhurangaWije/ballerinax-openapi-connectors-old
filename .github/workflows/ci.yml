@@ -7,20 +7,32 @@ on:
       - master
     types:
       - opened
-
+      
 jobs:
-  build:
+  container:
     runs-on: ubuntu-latest
-
+    container: kanishkaw/sl-alpha5-openapi-snapshot
     steps:
       - uses: actions/checkout@v2
+      - run: |
+          ls -al
 
-      - name: Set up Ballerina
-        uses: MadhurangaWije/ballerina-action@master
+# jobs:
+#   build:
+#     runs-on: ubuntu-latest
 
-      - name: Build with Gradle
-        env:
-          BALLERINA_CENTRAL_ACCESS_TOKEN: ${{ secrets.BALLERINA_CENTRAL_ACCESS_TOKEN }}
-          JAVA_OPTS: -DBALLERINA_DEV_COMPILE_BALLERINA_ORG=true
-        run: |
-          ./gradlew build -Prelease=false
+#     steps:
+#       - uses: actions/checkout@v2
+
+#       - name: Set up Ballerina
+#         uses: MadhurangaWije/ballerina-action@master
+#         with:
+#           args:
+#             /bin/bash ./gradlew build -Prelease=false
+
+#       - name: Build with Gradle
+#         env:
+#           BALLERINA_CENTRAL_ACCESS_TOKEN: ${{ secrets.BALLERINA_CENTRAL_ACCESS_TOKEN }}
+#           JAVA_OPTS: -DBALLERINA_DEV_COMPILE_BALLERINA_ORG=true
+#         run: |
+#           ./gradlew build -Prelease=false
