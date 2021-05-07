@@ -20,7 +20,7 @@ plugins {
 apply plugin: 'jacoco'
 apply plugin: 'maven-publish'
 
-def ballerinaDistributionPath = System.getenv("BALLERINA_HOME")
+def ballerinaDistributionPath = System.getenv("BALLERINA_DIST")
 def buildDirectoryList = []
 List<String> updatedBallerinaPackages = [];
 
