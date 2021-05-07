@@ -20,7 +20,7 @@ plugins {
 apply plugin: 'jacoco'
 apply plugin: 'maven-publish'
 
-def ballerinaDistributionPath = System.getenv("BALLERINA_HOME")
+def ballerinaDistributionPath = System.getenv("BALLERINA_DIST")
 def buildDirectoryList = []
 List<String> updatedBallerinaPackages = [];
 
@@ -71,11 +71,12 @@ task cleanup {
 task codegen {
     println "Code generation..."
 
+    // change the logic to generate code for each changed yaml file
     updatedBallerinaPackages.each {
         path->exec{
             String updatedYamlFile = Utils.findUpdatedYamlFile(path);
             if (!updatedYamlFile.isEmpty()){
-                commandLine 'sh', '-c', "${ballerinaDistributionPath}/bin/bal openapi -i ${updatedYamlFile} --mode client -o ${path}"
+                commandLine 'sh', '-c', "${ballerinaDistributionPath}/bal openapi -i ${updatedYamlFile} --mode client -o ${path}"
             }
         }
     }
@@ -83,7 +84,7 @@ task codegen {
     println "Code building..."
     updatedBallerinaPackages.each{
         path->exec{
-            commandLine 'sh', '-c', "${ballerinaDistributionPath}/bin/bal build -c ${path}"
+            commandLine 'sh', '-c', "${ballerinaDistributionPath}/bal build -c ${path}"
         }
     }
 }
@@ -99,7 +100,7 @@ task releaseConnector {
                 }
                 exec {
                     workingDir "${path}"
-                    commandLine 'sh', '-c', "${ballerinaDistributionPath}/bin/bal push"
+                    commandLine 'sh', '-c', "${ballerinaDistributionPath}/bal push"
                 }
             }
             println "Update package hashes"
