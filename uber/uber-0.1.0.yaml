@@ -69,7 +69,7 @@ paths:
         particular product, its surge_multiplier will be greater than 1, but the
         price estimate already factors in this multiplier.
       x-display:
-        label: "Estimated price"
+        label: "Estimate price"
       parameters:
         - name: start_latitude
           in: query
