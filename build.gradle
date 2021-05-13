@@ -90,8 +90,8 @@ task releaseConnector {
                     commandLine 'sh', '-c', "${ballerinaDistributionPath}bin/bal push"
                 }
                 println "Update package hashes"
-                Utils.updateChangedFilesHashes(project.projectDir.absolutePath, updatedBallerinaPackages)
             }
+            Utils.updateChangedFilesHashes(project.projectDir.absolutePath, updatedBallerinaPackages)
         }
     }
 }
