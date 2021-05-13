@@ -1,11 +1,12 @@
 
 name: Release
 
-on: [pull_request]
+on:
+  push:
+    branches: [ master ]
     
 jobs:
   container:
-    if: github.event.pull_request.merged == 'true'
     runs-on: ubuntu-latest
     container: kanishkaw/openapi-dist
     steps:
