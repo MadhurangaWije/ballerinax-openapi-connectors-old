@@ -1,9 +1,7 @@
 
 name: Release
 
-on:
-  push:
-    branches: [ master ]
+on: [pull_request]
     
 jobs:
   container:
