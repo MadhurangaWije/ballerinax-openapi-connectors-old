@@ -1,7 +1,4 @@
-//import org.openapi.buildutil.pathfinder.PathFinder;
 import org.ballerinax.openapi.validator.Utils
-import org.ballerinax.openapi.validator.Validator;
-
 
 buildscript {
     dependencies {
@@ -21,47 +18,25 @@ apply plugin: 'jacoco'
 apply plugin: 'maven-publish'
 
 def ballerinaDistributionPath = System.getenv("BALLERINA_DIST")
-def buildDirectoryList = []
-List<String> updatedBallerinaPackages = [];
+List<String> updatedBallerinaPackages = new ArrayList<>();
+boolean release = new Boolean(project.property("release").toString())
 
-repositories {
-    mavenLocal()
-    flatDir {
-        dirs "libs"
-    }
-}
-
-dependencies {
-    compile fileTree(dir: 'libs', includes: ['*.jar'])
-}
-
-
-task validate {
-    println "File validating..."
-    Utils.loadOpenAPIProperties(project.projectDir.absolutePath)
-    updatedBallerinaPackages = Utils.findUpdatedBallerinaPackages(project.projectDir.absolutePath);
-    println updatedBallerinaPackages
-    for (String ballerinaPackage : updatedBallerinaPackages) {
-        final List<String> openAPIs = Utils.findOpenAPIs(ballerinaPackage);
-        for (String openAPI : openAPIs) {
-            Validator.validateOpenAPI(openAPI);
-        }
-    }
-}
-
+// TODO: Remove this cleanup task once the file override enabled
 task cleanup {
     println "Cleaning up generated code..."
+    Utils.loadOpenAPIProperties(project.projectDir.absolutePath)
+    updatedBallerinaPackages = Utils.findUpdatedBallerinaPackages(project.projectDir.absolutePath);
     updatedBallerinaPackages.each {
         dir->exec{
             commandLine 'sh', '-c', "find ${dir} -name '*.bal' -type f -delete"
         }
     }
-    buildDirectoryList.each {
+    updatedBallerinaPackages.each {
         dir->exec{
             commandLine 'sh', '-c', "find ${dir} -name 'target' -type d -exec rm -rf {} +"
         }
     }
-    buildDirectoryList.each {
+    updatedBallerinaPackages.each {
         dir->exec{
             commandLine 'sh', '-c', "find ${dir} -name 'resources' -type d -exec rm -rf {} +"
         }
@@ -69,42 +44,54 @@ task cleanup {
 }
 
 task codegen {
-    println "Code generation..."
+    Utils.loadOpenAPIProperties(project.projectDir.absolutePath)
+    updatedBallerinaPackages = Utils.findUpdatedBallerinaPackages(project.projectDir.absolutePath);
 
-    // change the logic to generate code for each changed yaml file
-    updatedBallerinaPackages.each {
-        path->exec{
-            String updatedYamlFile = Utils.findUpdatedYamlFile(path);
-            if (!updatedYamlFile.isEmpty()){
-                commandLine 'sh', '-c', "${ballerinaDistributionPath}bin/bal openapi -i ${updatedYamlFile} --mode client -o ${path}"
+    for(String updatedPackagePath : updatedBallerinaPackages){
+        List<String> updatedYamlFiles = Utils.findOpenAPIs(updatedPackagePath);
+        println "Code generation..."
+        updatedYamlFiles.each {
+            file->exec{
+                commandLine 'sh', '-c', "${ballerinaDistributionPath}bin/bal openapi -i ${file} --mode client -o ${updatedPackagePath}"
             }
         }
     }
 
-    println "Code building..."
-    updatedBallerinaPackages.each{
-        path->exec{
+    for (String path : updatedBallerinaPackages) {
+        if(release) {
+            println "Update Ballerina.toml version"
+            Utils.bumpBallerinaTomlVersion(path);
+        }
+        println "Code building..."
+        exec {
             commandLine 'sh', '-c', "${ballerinaDistributionPath}bin/bal build -c ${path}"
+        }
+    }
+
+    for (String path : updatedBallerinaPackages) {
+        exec {
+            commandLine 'sh', '-c', "cd ${path}"
+        }
+
+        exec {
+            workingDir "${path}"
+            commandLine 'sh', '-c', "${ballerinaDistributionPath}bin/bal push --repository=local"
         }
     }
 }
 
 task releaseConnector {
     if (project.hasProperty("release") ) {
-        boolean release = new Boolean(project.property("release").toString())
         if(release){
-            println "Pushing to Ballerina central..."
             for (String path : updatedBallerinaPackages) {
-                exec {
-                    commandLine 'sh', '-c', "cd ${path}"
-                }
+                println "Pushing to Ballerina central..."
                 exec {
                     workingDir "${path}"
                     commandLine 'sh', '-c', "${ballerinaDistributionPath}bin/bal push"
                 }
+                println "Update package hashes"
+                Utils.updateChangedFilesHashes(project.projectDir.absolutePath, updatedBallerinaPackages)
             }
-            println "Update package hashes"
-            Utils.updateChangedFilesHashes(project.projectDir.absolutePath, updatedBallerinaPackages)
         }
     }
 }

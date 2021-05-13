@@ -1,7 +1,0 @@
-[package]
-org = "kanishka"
-name = "openweathermap"
-version = "2.2.1"
-
-[build-options]
-observabilityIncluded = true
