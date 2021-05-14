@@ -18,29 +18,50 @@ jobs:
           JAVA_OPTS: -DBALLERINA_DEV_COMPILE_BALLERINA_ORG=true
         run: |
            ./gradlew build -Prelease=true
-      - uses: stefanzweifel/git-auto-commit-action@v4
+#      - uses: stefanzweifel/git-auto-commit-action@v4
+#        with:
+#          commit_message: Apply automatic changes
+#          commit_options: '--no-verify --signoff'
+#
+#          # Optional glob pattern of files which should be added to the commit
+#          # Defaults to all (.)
+#          # See the `pathspec`-documentation for git
+#          # - https://git-scm.com/docs/git-add#Documentation/git-add.txt-ltpathspecgt82308203
+#          # - https://git-scm.com/docs/gitglossary#Documentation/gitglossary.txt-aiddefpathspecapathspec
+#          file_pattern: openapi.properties **/Ballerina.toml
+#          repository: .
+#
+#          # Optional options appended to `git-push`
+#          # See git-push documentation for details: https://git-scm.com/docs/git-push#_options
+#          push_options: '--force'
+#
+#          # Optional: Disable dirty check and always try to create a commit and push
+#          skip_dirty_check: true
+#
+#          # Optional: Skip internal call to `git fetch`
+#          skip_fetch: true
+#
+#          # Optional: Prevents the shell from expanding filenames. Details: https://www.gnu.org/software/bash/manual/html_node/Filename-Expansion.html
+#          disable_globbing: true
+
+      - name: Create Pull Request
+        id: cpr
+        uses: peter-evans/create-pull-request@v3
         with:
-          commit_message: Apply automatic changes
-          commit_options: '--no-verify --signoff'
+          token: ${{ secrets.PAT }}
+          commit-message: Update file hashes
+          committer: GitHub <noreply@github.com>
+          author: ${{ github.actor }} <${{ github.actor }}@users.noreply.github.com>
+          signoff: false
+          branch: master
+          title: Update file hashes
+          body: |
+            Update file hashes
+              - openapi.properties
+            Update Ballerina.toml version of the released connectors
+          draft: false
 
-          # Optional glob pattern of files which should be added to the commit
-          # Defaults to all (.)
-          # See the `pathspec`-documentation for git
-          # - https://git-scm.com/docs/git-add#Documentation/git-add.txt-ltpathspecgt82308203
-          # - https://git-scm.com/docs/gitglossary#Documentation/gitglossary.txt-aiddefpathspecapathspec
-          file_pattern: openapi.properties **/Ballerina.toml
-          repository: .
-
-          # Optional options appended to `git-push`
-          # See git-push documentation for details: https://git-scm.com/docs/git-push#_options
-          push_options: '--force'
-
-          # Optional: Disable dirty check and always try to create a commit and push
-          skip_dirty_check: true
-
-          # Optional: Skip internal call to `git fetch`
-          skip_fetch: true
-
-          # Optional: Prevents the shell from expanding filenames. Details: https://www.gnu.org/software/bash/manual/html_node/Filename-Expansion.html
-          disable_globbing: true
-
+      - name: Check status
+        run: |
+          echo "Pull Request Number - ${{ steps.cpr.outputs.pull-request-number }}"
+          echo "Pull Request URL - ${{ steps.cpr.outputs.pull-request-url }}"
