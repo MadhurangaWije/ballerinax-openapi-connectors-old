@@ -2,9 +2,10 @@
 name: Release
 
 on:
-  push:
-    branches: [ master ]
-    
+  release:
+    types:
+      - published
+
 jobs:
   container:
     runs-on: ubuntu-latest

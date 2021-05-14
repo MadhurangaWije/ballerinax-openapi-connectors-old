@@ -58,10 +58,6 @@ task codegen {
     }
 
     for (String path : updatedBallerinaPackages) {
-        if(release) {
-            println "Update Ballerina.toml version"
-            Utils.bumpBallerinaTomlVersion(path);
-        }
         println "Code building..."
         exec {
             commandLine 'sh', '-c', "${ballerinaDistributionPath}bin/bal build -c ${path}"
@@ -89,8 +85,10 @@ task releaseConnector {
                     workingDir "${path}"
                     commandLine 'sh', '-c', "${ballerinaDistributionPath}bin/bal push"
                 }
-                println "Update package hashes"
+                println "Update Ballerina.toml version"
+                Utils.bumpBallerinaTomlVersion(path);
             }
+            println "Update package hashes"
             Utils.updateChangedFilesHashes(project.projectDir.absolutePath, updatedBallerinaPackages)
         }
     }
