@@ -18,7 +18,7 @@ paths:
         other details about each product, and lists the products in the proper
         display order.
       x-display:
-        label: "Get ride products"
+        label: "Get ride product"
       parameters:
         - name: latitude
           in: query
