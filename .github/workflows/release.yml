@@ -53,7 +53,8 @@ jobs:
           committer: GitHub <noreply@github.com>
           author: ${{ github.actor }} <${{ github.actor }}@users.noreply.github.com>
           signoff: false
-          branch: master
+#          branch: master
+          base: master
           title: Update file hashes
           body: |
             Update file hashes
