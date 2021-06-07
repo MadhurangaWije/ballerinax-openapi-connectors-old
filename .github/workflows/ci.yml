@@ -11,7 +11,7 @@ on:
 jobs:
   container:
     runs-on: ubuntu-latest
-    container: ballerina/ballerina:swan-lake-beta1
+    container: docker pull kanishkaw/ballerina:swan-lake-beta1-openaapi
     steps:
       - uses: actions/checkout@v2
       - name: Build with Gradle
