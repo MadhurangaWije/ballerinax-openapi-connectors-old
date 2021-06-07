@@ -17,7 +17,7 @@ plugins {
 apply plugin: 'jacoco'
 apply plugin: 'maven-publish'
 
-def ballerinaDistributionPath = System.getenv("BALLERINA_DIST")
+def ballerinaDistributionPath = System.getenv("BALLERINA_HOME")
 List<String> updatedBallerinaPackages = new ArrayList<>();
 boolean release = new Boolean(project.property("release").toString())
 
@@ -25,7 +25,6 @@ boolean release = new Boolean(project.property("release").toString())
 task cleanup {
     println "Cleaning up generated code..."
     Utils.loadOpenAPIProperties(project.projectDir.absolutePath)
-    updatedBallerinaPackages = Utils.findUpdatedBallerinaPackages(project.projectDir.absolutePath);
     updatedBallerinaPackages.each {
         dir->exec{
             commandLine 'sh', '-c', "find ${dir} -name '*.bal' -type f -delete"
@@ -45,51 +44,66 @@ task cleanup {
 
 task codegen {
     Utils.loadOpenAPIProperties(project.projectDir.absolutePath)
-    updatedBallerinaPackages = Utils.findUpdatedBallerinaPackages(project.projectDir.absolutePath);
+    updatedBallerinaPackages = Utils.findUpdatedBallerinaPackages(project.projectDir.absolutePath)
+
+    exec {
+        commandLine 'sh', '-c', "${ballerinaDistributionPath}/bin/bal dist use slbeta1"
+    }
 
     for(String updatedPackagePath : updatedBallerinaPackages){
         List<String> updatedYamlFiles = Utils.findOpenAPIs(updatedPackagePath);
         println "Code generation..."
         updatedYamlFiles.each {
             file->exec{
-                commandLine 'sh', '-c', "${ballerinaDistributionPath}bin/bal openapi -i ${file} --mode client -o ${updatedPackagePath}"
+                commandLine 'bash', '-c', "${ballerinaDistributionPath}/bin/bal openapi -i ${file} --mode client -o ${updatedPackagePath}"
             }
         }
+    }
+
+    // Pulling slalpha5 distribution if not available
+    exec {
+        commandLine 'sh', '-c', "${ballerinaDistributionPath}/bin/bal dist pull slalpha5"
+    }
+
+    // Changing the build distribution to SL Alpha5
+    exec {
+        commandLine 'sh', '-c', "${ballerinaDistributionPath}/bin/bal dist use slalpha5"
     }
 
     for (String path : updatedBallerinaPackages) {
         println "Code building..."
         exec {
-            commandLine 'sh', '-c', "${ballerinaDistributionPath}bin/bal build -c ${path}"
+            commandLine 'sh', '-c', "${ballerinaDistributionPath}/bin/bal build -c ${path}"
         }
     }
 
     for (String path : updatedBallerinaPackages) {
-        exec {
-            commandLine 'sh', '-c', "cd ${path}"
-        }
 
-        exec {
-            workingDir "${path}"
-            commandLine 'sh', '-c', "${ballerinaDistributionPath}bin/bal push --repository=local"
+        if (!release) {
+            exec {
+                workingDir "${path}"
+                commandLine 'sh', '-c', "${ballerinaDistributionPath}/bin/bal push --repository=local"
+            }
         }
     }
 }
 
 task releaseConnector {
+    //TODO: check and remove the snapshot part in the ballerina toml
     if (project.hasProperty("release") ) {
+
         if(release){
             for (String path : updatedBallerinaPackages) {
                 println "Pushing to Ballerina central..."
                 exec {
                     workingDir "${path}"
-                    commandLine 'sh', '-c', "${ballerinaDistributionPath}bin/bal push"
+                    commandLine 'sh', '-c', "${ballerinaDistributionPath}/bin/bal push"
                 }
                 println "Update Ballerina.toml version"
                 Utils.bumpBallerinaTomlVersion(path);
             }
             println "Update package hashes"
-            Utils.updateChangedFilesHashes(project.projectDir.absolutePath, updatedBallerinaPackages)
+            Utils.writeUpdatedFileHashes(project.projectDir.absolutePath, updatedBallerinaPackages)
         }
     }
 }
