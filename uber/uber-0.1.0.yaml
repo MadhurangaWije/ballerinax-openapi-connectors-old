@@ -12,7 +12,7 @@ servers:
 paths:
   /products:
     get:
-      summary: Products Types asfdjasnfjnasjnfas fia sjfias jfia sjfi kmkmkmkmk
+      summary: Products Types asfdjasnfjnas ajdsnjasndjands jnfas fia sjfias jfia sjfi kmkmkmkmk
       description: The Products endpoint returns information about the Uber products
         offered at a given location. The response includes the display name and
         other details about each product, and lists the products in the proper
