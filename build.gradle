@@ -66,16 +66,16 @@ task codegen {
     }
     println("Before deletion")
     exec {
-        commandLine 'sh', '-c', "ls  /ballerina/runtime/bin/../dependencies/"
+        commandLine 'sh', '-c', "ls  ${ballerinaDistributionPath}/bin/../dependencies/"
     }
 
     exec {
-        commandLine 'sh', '-c', "rm -rf /ballerina/runtime/bin/../dependencies/jdk-11.0.8+10-jre"
+        commandLine 'sh', '-c', "rm -rf ${ballerinaDistributionPath}/bin/../dependencies/jdk-11.0.8+10-jre"
     }
 
     println("After deletion")
     exec {
-        commandLine 'sh', '-c', "ls  /ballerina/runtime/bin/../dependencies/"
+        commandLine 'sh', '-c', "ls  ${ballerinaDistributionPath}/bin/../dependencies/"
     }
 
     // Changing the build distribution to SL Alpha5
