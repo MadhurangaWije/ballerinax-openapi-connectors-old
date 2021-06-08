@@ -70,6 +70,10 @@ task codegen {
         commandLine 'sh', '-c', "${ballerinaDistributionPath}/bin/bal dist use slalpha5"
     }
 
+    exec {
+        commandLine 'sh', '-c', "rm -rf /ballerina/runtime/bin/../dependencies/jdk-11.0.8+10-jre"
+    }
+
     for (String path : updatedBallerinaPackages) {
         println "Code building..."
         exec {
