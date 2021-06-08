@@ -69,9 +69,18 @@ task codegen {
     exec {
         commandLine 'sh', '-c', "${ballerinaDistributionPath}/bin/bal dist use slalpha5"
     }
+    println("Before deletion")
+    exec {
+        commandLine 'sh', '-c', "ls  /ballerina/runtime/bin/../dependencies/"
+    }
 
     exec {
         commandLine 'sh', '-c', "rm -rf /ballerina/runtime/bin/../dependencies/jdk-11.0.8+10-jre"
+    }
+
+    println("After deletion")
+    exec {
+        commandLine 'sh', '-c', "ls  /ballerina/runtime/bin/../dependencies/"
     }
 
     for (String path : updatedBallerinaPackages) {
