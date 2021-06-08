@@ -64,11 +64,6 @@ task codegen {
     exec {
         commandLine 'sh', '-c', "${ballerinaDistributionPath}/bin/bal dist pull slalpha5"
     }
-
-    // Changing the build distribution to SL Alpha5
-    exec {
-        commandLine 'sh', '-c', "${ballerinaDistributionPath}/bin/bal dist use slalpha5"
-    }
     println("Before deletion")
     exec {
         commandLine 'sh', '-c', "ls  /ballerina/runtime/bin/../dependencies/"
@@ -82,6 +77,12 @@ task codegen {
     exec {
         commandLine 'sh', '-c', "ls  /ballerina/runtime/bin/../dependencies/"
     }
+
+    // Changing the build distribution to SL Alpha5
+    exec {
+        commandLine 'sh', '-c', "${ballerinaDistributionPath}/bin/bal dist use slalpha5"
+    }
+
 
     for (String path : updatedBallerinaPackages) {
         println "Code building..."
