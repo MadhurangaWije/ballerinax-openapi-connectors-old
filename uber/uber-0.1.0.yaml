@@ -22,7 +22,7 @@ paths:
       parameters:
         - name: latitude
           in: query
-          description: Latitude ajsndjsacomponent of location.
+          description: Latitude ajsndjsacomponent of location. asdas da asdasdas
           required: true
           schema:
             type: number
