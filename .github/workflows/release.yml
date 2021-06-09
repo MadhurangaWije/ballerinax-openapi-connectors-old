@@ -9,7 +9,9 @@ on:
 jobs:
   container:
     runs-on: ubuntu-latest
-    container: kanishkaw/openapi-dist
+    container:
+      image: ballerina/ballerina:swan-lake-beta1
+      options: --user root
     steps:
       - uses: actions/checkout@v2
       - name: Build with Gradle
