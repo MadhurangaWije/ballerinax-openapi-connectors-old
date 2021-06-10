@@ -1,0 +1,8 @@
+.gradle
+build
+**/target
+**/resources
+gen
+.idea
+**/*.bal
+*.log
